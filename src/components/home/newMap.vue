@@ -1,8 +1,6 @@
 <template>
   <div class="_map">
     <div class="amap-page-container">
-      <!-- <div @click="handleClickDetail" class="r detailEnterClass" style="font-size:16px;color: #5eeeff;cursor: pointer;position:absolute;left: 20px;top:20px;z-index:999">详情></div> -->
-      <!--<el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult" ></el-amap-search-box>-->
       <el-amap ref="map" :mapStyle="mapStyle"  vid="amapDemo" :plugin="plugin"  :zoom="zoom" :center="center" class="amap-demo" :events="events">
         <div v-for="mark in maps.markpoint">
           <el-amap-marker

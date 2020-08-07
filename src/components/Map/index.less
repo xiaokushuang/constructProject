@@ -1,0 +1,160 @@
+:global {
+  .amap-logo {
+    display: none !important;
+  }
+  .amap-copyright {
+    display: none !important;
+  }
+  .amap-info-contentContainer.bottom-center {
+    position: relative;
+    padding-bottom: 0;
+  }
+  .amap_markers_pop_window {
+    padding: 0 0 8px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .amap_markers_pop_window::before {
+    display: none !important;
+  }
+  .amap_markers_pop_window::after {
+    display: none !important;
+  }
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #94dcff;
+  font-size: 20px;
+}
+
+.popup {
+  width: 405px;
+  height: 190px;
+  padding: 16px;
+  background: #023866;
+  border: 1px solid #246286;
+  border-radius: 8px;
+  .progressBar {
+    width: 100px;
+    height: 8px;
+    background-color: rgba(220, 220, 220, 0.2);
+    border-radius: 4px;
+  }
+  .progress {
+    width: 42px;
+    height: 8px;
+    background-color: #5eeeff;
+    border-radius: 4px;
+  }
+
+  .first {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 16px;
+    margin-top: 2px;
+    font-size: 16px;
+    line-height: 16px;
+    .name {
+      max-width: 310px;
+      overflow: hidden;
+      color: #fff;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .link {
+      // display: block;
+      width: 45px;
+      color: #5eeeff;
+    }
+  }
+  .second {
+    display: flex;
+    height: 13px;
+    margin: 16px 0;
+    line-height: 13px;
+    .icon {
+      margin-right: 8px;
+      color: #59acff;
+      font-size: 13px;
+    }
+    .location {
+      color: #fff;
+      font-size: 13px;
+    }
+  }
+
+  .third {
+    display: flex;
+    width: 100%;
+
+    .img {
+      display: block;
+      width: 160px;
+      height: 90px;
+      margin-right: 16px;
+    }
+    .detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .item {
+        display: flex;
+        max-width: 195px;
+        height: 13px;
+        line-height: 13px;
+        white-space: nowrap;
+
+        .limit {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .title {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 13px;
+        }
+        .value {
+          display: flex;
+          align-items: center;
+          max-width: 100%;
+          height: 13px;
+          margin-left: 8px;
+          overflow: hidden;
+          color: #fff;
+          font-size: 13px;
+          line-height: 13px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  bottom: 2px;
+  left: 190px;
+  width: 13px;
+  height: 13px;
+  background: #023866;
+  border: 1px solid #246286;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}

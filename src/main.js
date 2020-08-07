@@ -11,6 +11,10 @@ Vue.config.productionTip = false
 //引入高德
 import VueAMap  from 'vue-amap';  //注意不要和 AMap原始名称覆盖
 Vue.use(VueAMap);
+//引入element
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(Element)
 // 初始化vue-amap
 VueAMap.initAMapApiLoader({
   // 高德的key

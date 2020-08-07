@@ -145,22 +145,22 @@ export default {
     return {
       leftList1:[
         {
-          src:require('../assets/left1-1.png'),
+          src:require('../../assets/left1-1.png'),
           num:'8',
           name:'项目总数'
         },
         {
-          src:require('../assets/left1-2.png'),
+          src:require('../../assets/left1-2.png'),
           num:'15',
           name:'建筑体量(万m²)'
         },
         {
-          src:require('../assets/left1-3.png'),
+          src:require('../../assets/left1-3.png'),
           num:'290',
           name:'在册员工数'
         },
         {
-          src:require('../assets/left1-4.png'),
+          src:require('../../assets/left1-4.png'),
           num:'342',
           name:'测接入设备'
         }
@@ -168,27 +168,27 @@ export default {
       rightList1:[
         {
           radio:'89%',
-          src:require('../assets/right1-1.png'),
+          src:require('../../assets/right1-1.png'),
           name:'扬尘'
         },
         {
           radio:'94%',
-          src:require('../assets/right1-2.png'),
+          src:require('../../assets/right1-2.png'),
           name:'摄像头'
         },
         {
           radio:'84%',
-          src:require('../assets/right1-3.png'),
+          src:require('../../assets/right1-3.png'),
           name:'塔吊'
         },
         {
           radio:'97%',
-          src:require('../assets/right1-4.png'),
+          src:require('../../assets/right1-4.png'),
           name:'升降机'
         },
         {
           radio:'82%',
-          src:require('../assets/right1-5.png'),
+          src:require('../../assets/right1-5.png'),
           name:'卸料机'
         },
       ],
@@ -201,8 +201,8 @@ export default {
 <style scoped>
 
   .visualizationClass{
-    background: url("../assets/bg1.png") 0 0 no-repeat,
-    url("../assets/bg2.png") 0px 0 no-repeat;
+    background: url("../../assets/bg1.png") 0 0 no-repeat,
+    url("../../assets/bg2.png") 0px 0 no-repeat;
     height: 1080px;
   }
   .navClass{
@@ -212,11 +212,11 @@ export default {
     color: #fff;
     width: 100%;
     height: 91px;
-    background: url("../assets/nav.png") 0 0 no-repeat;
+    background: url("../../assets/nav.png") 0 0 no-repeat;
   }
   .contentClass{
     width: 100%;
-    background: url("../assets/bg3.png") 0 0 no-repeat;
+    background: url("../../assets/bg3.png") 0 0 no-repeat;
     background-size: 100% 100%;
     padding: 25px;
   }
@@ -224,7 +224,7 @@ export default {
     width: 487px;
     height: 279px;
     padding-left: 34px;
-    background: url("../assets/left1.png") 0 0 no-repeat;
+    background: url("../../assets/left1.png") 0 0 no-repeat;
     background-size: cover;
     margin-bottom: 20px;
   }
@@ -232,7 +232,7 @@ export default {
     width: 487px;
     height: 279px;
     padding-left: 34px;
-    background: url("../assets/right1-0.png") 0 0 no-repeat;
+    background: url("../../assets/right1-0.png") 0 0 no-repeat;
     background-size: cover;
     margin-bottom: 20px;
   }
@@ -255,7 +255,7 @@ export default {
     width: 79px;
     height: 64px;
     margin-top:17px;
-    background: url("../assets/left1-0.png") 0 0 no-repeat;
+    background: url("../../assets/left1-0.png") 0 0 no-repeat;
   }
   .lightSmark{
     margin-bottom: 25px;
@@ -265,7 +265,7 @@ export default {
   .centerTop{
     width: 815px;
     height: 588px;
-    background: url("../assets/center1.png") 0 0 no-repeat;
+    background: url("../../assets/center1.png") 0 0 no-repeat;
     background-size: cover;
     margin-bottom: 10px;
     padding:15px;
@@ -275,23 +275,23 @@ export default {
     height: 279px;
     padding: 60px;
     padding-top: 0;
-    background: url("../assets/center2.png") 0 0 no-repeat;
+    background: url("../../assets/center2.png") 0 0 no-repeat;
     background-size: cover;
   }
   .centerBottom-circle{
     width: 159px;
     height: 159px;
     line-height: 159px;
-    background: url("../assets/center2-0.png") 0 0 no-repeat,
-    url("../assets/center2-1.png") 0px 0 no-repeat;
+    background: url("../../assets/center2-0.png") 0 0 no-repeat,
+    url("../../assets/center2-1.png") 0px 0 no-repeat;
     background-position: center;
   }
   .centerBottom-circle-1{
     width: 159px;
     height: 159px;
     line-height: 159px;
-    background: url("../assets/center2-2.png") 0 0 no-repeat,
-    url("../assets/center2-1.png") 0px 0 no-repeat;
+    background: url("../../assets/center2-2.png") 0 0 no-repeat,
+    url("../../assets/center2-1.png") 0px 0 no-repeat;
     background-position: center;
   }
   .centerBottom-circle-text{

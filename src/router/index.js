@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Visualization from '@/components/visualization'
+import Visualization from '@/components/home/visualization'
 import Construction from '@/components/construction/nav'
 // import Map from '@/components/map'
 

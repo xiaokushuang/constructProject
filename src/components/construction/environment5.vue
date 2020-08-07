@@ -15,7 +15,7 @@
                   <div class="clear">
                     <div class="l">
                       <div class="hj-left1-1">
-                        <img style="position:relative; top:10px" :src="data.src" alt="">
+                        <img style="position:relative; top:10px;" width="48" height="48" :src="data.src" alt="">
                       </div>
                       <div style="text-align: center">{{data.name}}</div>
                     </div>
@@ -118,7 +118,8 @@
 </template>
 
 <script>
-  import left2 from './left2'
+  import axios from 'axios';
+  import left2 from './hj-left2'
     export default {
         name: "environment5",
       components:{
@@ -202,50 +203,18 @@
                   name:'离线'
                 },
               ],
-              rightList3:[
-                {
-                  name:'设备编号',
-                  num1:'8674531',
-                  num2:'8674531',
-                  num3:'8674531',
-                  num4:'8674531',
-                  num5:'8674531',
-                  num6:'8674531',
-                  num7:'8674531',
-                },
-                {
-                  name:'报警类型',
-                  num1:'噪音',
-                  num2:'AQI',
-                  num3:'6',
-                  num4:'4',
-                  num5:'4',
-                  num6:'3',
-                  num7:'3',
-                },
-                {
-                  name:'报警信息',
-                  num1:'过大',
-                  num2:'超标',
-                  num3:'5',
-                  num4:'6',
-                  num5:'4',
-                  num6:'3',
-                  num7:'4',
-                },
-                {
-                  name:'报警时间',
-                  num1:'2020.07.30',
-                  num2:'2',
-                  num3:'0',
-                  num4:'2',
-                  num5:'2',
-                  num6:'3',
-                  num7:'5',
-                }
-              ],
+              rightList3:[],
             }
         },
+      created(){
+        axios.get("../../../static/json/hj.json").then((res)=>{
+          console.log('环境请求数据',res)
+          if(res.data.success){
+            this.rightList3 = res.data.rightList3
+            this.drawLine();
+          }
+        })
+      },
     }
 </script>
 

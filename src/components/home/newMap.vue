@@ -25,7 +25,6 @@
 </template>
 
 <script>
-  import back from "../assets/left1-1.png"
   export default {
     name: 'newMap',
     components: {
@@ -35,7 +34,7 @@
       me.city = me.city || '南京';
       return {
         currentWindow:{
-          tooltipImg2:require('../assets/spot.png'),
+          tooltipImg2:require('../../assets/spot.png'),
           position:[118.803687,31.984702],
           visible:false,
           content:`<div class="tipClass" onclick="window.open('/#/construction','_self')">
@@ -44,7 +43,7 @@
                         <div class="r detailEnterClass" style="font-size:16px;color: #5eeeff;cursor: pointer;">详情></div>
                      </div>
                      <div>
-                        <img src="../assets/left1-1.png" width="10" height="10" alt="">
+                        <img src="../../assets/left1-1.png" width="10" height="10" alt="">
                         <div>南部新城夹岗区</div>
                       </div>
                       <div class="clear">
@@ -60,7 +59,7 @@
                       </div>
                    </div>`
         },
-        markImg:require('../assets/mark.png'),
+        markImg:require('../../assets/mark.png'),
         mapStyle: 'amap://styles/darkblue',
         list:[],
         currIndex:0,

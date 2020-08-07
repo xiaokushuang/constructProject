@@ -38,67 +38,67 @@
           return {
             tableData: [
               {
-              name: '1哈尔滨鹤城项目',
+              name: '哈尔滨鹤城项目',
               PM25:'4.1ug',
               PM10:'15ug',
               noise:'51dB',
               wind:'3.6km/h'
             },
               {
-                name: '2哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '哈尔滨御府工程',
+                PM25:'5.1ug',
+                PM10:'35ug',
+                noise:'11dB',
+                wind:'45.6km/h'
               },
               {
-                name: '3哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '阿城宾西法阵工程',
+                PM25:'3.1ug',
+                PM10:'35ug',
+                noise:'31dB',
+                wind:'3.3km/h'
               },
               {
-                name: '4哈尔滨鹤城项目',
+                name: '双城悦城国际项目',
                 PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                PM10:'14ug',
+                noise:'41dB',
+                wind:'4.6km/h'
               },
               {
-                name: '5哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '哈尔滨荔湾城项目',
+                PM25:'5.1ug',
+                PM10:'5ug',
+                noise:'4dB',
+                wind:'4.6km/h'
               },
               {
-                name: '6哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '哈尔滨鹤城项目',
+                PM25:'2.1ug',
+                PM10:'7ug',
+                noise:'7dB',
+                wind:'6.6km/h'
               },
               {
-                name: '7哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '的骄傲哈尔滨鹤城',
+                PM25:'7.1ug',
+                PM10:'85ug',
+                noise:'56dB',
+                wind:'6.6km/h'
               },
               {
-                name: '8哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '案件大大鹤城项目',
+                PM25:'7.1ug',
+                PM10:'25ug',
+                noise:'81dB',
+                wind:'8.6km/h'
               },
               {
-                name: '9哈尔滨鹤城项目',
-                PM25:'4.1ug',
-                PM10:'15ug',
-                noise:'51dB',
-                wind:'3.6km/h'
+                name: '大剌剌滨鹤城项目',
+                PM25:'6.1ug',
+                PM10:'75ug',
+                noise:'91dB',
+                wind:'9.6km/h'
               },
             ]
           }
@@ -150,10 +150,18 @@
       font-size: 14px;
     }
     .el-table tr{
+      td .cell{
+        background: rgba(70,127,224,0.3);
+      }
+    }
+    .el-table tr{
       td:nth-of-type(1) .cell{
+        margin-right: 11PX;
         background: rgba(149,70,224,0.3);
       }
-
+    }
+    .el-table::before {
+      height: 0px;
     }
     .title{
       font-size: 18px;

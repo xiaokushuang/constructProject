@@ -1,7 +1,7 @@
 <template>
   <div class="visualizationClass">
     <!--导航栏头部-->
-    <div class="navClass">南部新城智慧工地监管平台</div>
+    <div class="navClass">南部新城智慧工地监管平台111</div>
    <!--内容部分-->
     <div style="padding: 0 15px;">
       <div class="contentClass clear" style="padding-top:30px">

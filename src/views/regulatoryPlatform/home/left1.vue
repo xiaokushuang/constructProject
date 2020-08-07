@@ -151,13 +151,13 @@
     }
     .el-table tr{
       td .cell{
-        background: rgba(70,127,224,0.3);
+        background: rgba(70,127,224,0.5);
       }
     }
     .el-table tr{
       td:nth-of-type(1) .cell{
         margin-right: 11PX;
-        background: rgba(149,70,224,0.3);
+        background: rgba(149,70,224,0.5);
       }
     }
     .el-table::before {

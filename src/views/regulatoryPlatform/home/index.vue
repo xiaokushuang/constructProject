@@ -1,86 +1,93 @@
 <template>
     <div class="indexClass">
+      <newMap style="position: absolute"></newMap>
       <!--头部header-->
-      <header class="headerClass">
-        <div class="clear">
-          <div class="l leftHeader">
-            <span><img src="../images/center/nav-1.png" alt=""></span>
-            <span><img src="../images/center/nav-3.png" alt=""></span>
-            <span><img src="../images/center/nav-2.png" alt=""></span>
-            <span><img src="../images/center/nav-3.png" alt=""></span>
-            <span>总值班：张三</span>
-            <span>值班经理：张三</span>
+      <div >
+        <header class="headerClass">
+          <div class="clear">
+            <div class="l leftHeader">
+              <span><img src="../images/center/nav-1.png" alt=""></span>
+              <span><img src="../images/center/nav-3.png" alt=""></span>
+              <span><img src="../images/center/nav-2.png" alt=""></span>
+              <span><img src="../images/center/nav-3.png" alt=""></span>
+              <span>总值班：张三</span>
+              <span>值班经理：张三</span>
+            </div>
+            <div class="l" style="width: calc(100% - 1000px);height: 117px;font-size:38px;font-weight: bold;text-align: center;line-height: 117px;">
+              黑龙江省建设工程质量安全信息化监管平台
+            </div>
+            <div class="l leftHeader" style="padding-left: 165px;">
+              <span>2020.02.26</span>
+              <span>12：34：09</span>
+              <span><img src="../images/center/nav-3.png" alt=""></span>
+              <span><img src="../images/center/nav-4.png" alt=""></span>
+              <span>微风</span>
+              <span>中雨</span>
+            </div>
           </div>
-          <div class="l" style="width: calc(100% - 1000px);height: 117px;font-size:38px;font-weight: bold;text-align: center;line-height: 117px;">
-            黑龙江省建设工程质量安全信息化监管平台
-          </div>
-          <div class="l leftHeader" style="padding-left: 165px;">
-            <span>2020.02.26</span>
-            <span>12：34：09</span>
-            <span><img src="../images/center/nav-3.png" alt=""></span>
-            <span><img src="../images/center/nav-4.png" alt=""></span>
-            <span>微风</span>
-            <span>中雨</span>
-          </div>
-        </div>
-      </header>
-      <!--内容-->
-      <div class="contentClass">
+        </header>
+        <!--内容-->
+        <div class="contentClass">
           <div class="clear">
             <!--左侧内容-->
             <div class="l leftAll">
               <transition appear name="moveL">
                   <div class="left1-class">
-                    <left1></left1>
-                  </div>
-              </transition>
-              <transition appear name="moveL">
-              <div class="left2-class">
-                <left2></left2>
+                <left1></left1>
               </div>
               </transition>
               <transition appear name="moveL">
-              <div class="left3-class">
-                <left3></left3>
-              </div>
+                <div class="left2-class">
+                  <left2></left2>
+                </div>
               </transition>
               <transition appear name="moveL">
-              <div class="left4-class">
-                <left4></left4>
-              </div>
+                <div class="left3-class">
+                  <left3></left3>
+                </div>
+              </transition>
+              <transition appear name="moveL">
+                <div class="left4-class">
+                  <left4></left4>
+                </div>
               </transition>
             </div>
             <!--中间内容-->
-            <div class="l centerAll"></div>
+            <div class="l centerAll">
+              <centerTop style="position: absolute;top: 116px;left: 510px;"></centerTop>
+              <centerbottom style="position: absolute;bottom: 0;left: 510px;"></centerbottom>
+            </div>
             <!--右侧内容-->
             <div class="l rightAll">
               <transition appear name="moveR">
-              <div class="right1-class">
-                <right1></right1>
-              </div>
+                <div class="right1-class">
+                  <right1></right1>
+                </div>
               </transition>
               <transition appear name="moveR">
-              <div class="right2-class">
-                <right2></right2>
-              </div>
+                <div class="right2-class">
+                  <right2></right2>
+                </div>
               </transition>
               <transition appear name="moveR">
-              <div class="right3-class">
-                <right3></right3>
-              </div>
+                <div class="right3-class">
+                  <right3></right3>
+                </div>
               </transition>
               <transition appear name="moveR">
-              <div class="right4-class">
-                <right4></right4>
-              </div>
+                <div class="right4-class">
+                  <right4></right4>
+                </div>
               </transition>
             </div>
           </div>
+        </div>
       </div>
     </div>
 </template>
 
 <script>
+  import newMap from './newMap'
   import left1 from './left1'
   import left2 from './left2'
   import left3 from './left3'
@@ -89,6 +96,8 @@
   import right2 from './right2'
   import right3 from './right3'
   import right4 from './right4'
+  import centerTop from './center/center-top'
+  import centerbottom from './center/center-bottom'
     export default {
         name: "index",
       data(){
@@ -96,6 +105,7 @@
        }
       },
         components:{
+          newMap,
           left1,
           left2,
           left3,
@@ -103,7 +113,9 @@
           right1,
           right2,
           right3,
-          right4
+          right4,
+          centerTop,
+          centerbottom
         },
     }
 </script>
@@ -136,8 +148,10 @@
   .indexClass{
     background: url("../images/border/bg.png") 0 0 no-repeat;
     height: 1080px;
+    position: relative;
   }
 .headerClass{
+  position: absolute;
   width: 1919px;
   height: 117px;
   background: url("../images/border/title.png") no-repeat;
@@ -161,13 +175,20 @@
 }
   .leftAll{
     width: 497px;
+    position: absolute;
+    left: 0;
+    top: 101px;
   }
   .centerAll{
     width: 868px;
     height: 1004px;
+    position: absolute;
   }
   .rightAll{
     width: 497px;
+    position: absolute;
+    right: 0;
+    top: 101px;
   }
   .left1-class{
     width: 496px;

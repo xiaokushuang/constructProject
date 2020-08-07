@@ -1,0 +1,31 @@
+<template>
+    <div class="center-top-class">
+      <div class="clear">
+        <div class="l center-top-1"></div>
+        <div class="l center-top-2"></div>
+      </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "center1"
+    }
+</script>
+
+<style scoped>
+  .center-top-class{
+    width: 868px;
+  }
+  .center-top-1{
+    width: 424px;
+    height: 132px;
+    margin-right: 10px;
+    background: url("../../images/border/center1.png") 0 0 no-repeat;
+  }
+  .center-top-2{
+    width: 424px;
+    height: 132px;
+    background: url("../../images/border/center1.png") 0 0 no-repeat;
+  }
+</style>

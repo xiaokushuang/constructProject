@@ -149,129 +149,30 @@ export default {
         viLeft1
     },
     created() {
-        axios.get("../../../static/json/videoMonitoringEchartData.json").then((res) => {
-            console.log(res)
+        axios.get("../../../static/json/videoMonitoringTableData.json").then((res) => {
             if (res.data.success) {
-                this.echartData = res.data.data;
+                this.rightList3NewData = res.data.rightList3NewData;
+                this.echartData = this.getEchartData(res.data.rightList3NewData);
                 this.getPassRadio();
                 this.drawLine();
+                this.videoAllInit()
+
             }
         })
     },
     mounted() {
-        this.videoAllInit()
 
     },
     data() {
         return {
             isActive: 0,
             echartData: [],
-            rightList3: [{
-                    name: '启用状态',
-                    num1: '开',
-                    num2: '关',
-                    num3: '开',
-                    num4: '开',
-                    num5: '关',
-                    num6: '关',
-                    num7: '关',
-                },
-                {
-                    name: '安装位置',
-                    num1: '门口',
-                    num2: '门口',
-                    num3: '厂房',
-                    num4: '厂房',
-                    num5: '门口',
-                    num6: '门口',
-                    num7: '门口',
-                },
-                {
-                    name: '在线天数',
-                    num1: '6',
-                    num2: '3',
-                    num3: '5',
-                    num4: '6',
-                    num5: '4',
-                    num6: '3',
-                    num7: '4',
-                },
-                {
-                    name: '离线天数',
-                    num1: '6',
-                    num2: '2',
-                    num3: '0',
-                    num4: '2',
-                    num5: '2',
-                    num6: '3',
-                    num7: '5',
-                },
-                {
-                    name: '安装时间',
-                    num1: '2020.07.30',
-                    num2: '2020.07.30',
-                    num3: '2020.07.30',
-                    num4: '2020.07.30',
-                    num5: '2020.07.30',
-                    num6: '2020.07.30',
-                    num7: '2020.07.30',
-                }
-            ],
+            rightList3: [],
             rightList3NewTitle: [
                 '启用状态', '安装位置', '在线天数', '离线天数', '安装时间'
             ],
 
-            rightList3NewData: [{
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/4f475be8755e4c499a2d4abfffdeb088.hd.m3u8'
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/dc89d8edb96f40c8b0f58836eba705f7.hd.m3u8'
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/ede11c83b99f44cdba2638800857c463.hd.m3u8'
-
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/b283c68f1ac041649f464bdb52040a79.hd.m3u8'
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/b283c68f1ac041649f464bdb52040a79.hd.m3u8'
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/b283c68f1ac041649f464bdb52040a79.hd.m3u8'
-            }, {
-                state: '开',
-                location: '厂房',
-                offlineDay: '7',
-                onlineDay: '9',
-                time: '2020.07.30',
-                src: 'http://hls01open.ys7.com/openlive/b283c68f1ac041649f464bdb52040a79.hd.m3u8'
-            }],
+            rightList3NewData: [],
             viNumList: [{
                     num: '4'
                 },
@@ -285,13 +186,13 @@ export default {
             leftList1: [{
                     src: require('../../assets/vi-1-1.png'),
                     name: '',
-                    num: "4/10",
+                    num: "",
                     unit: '摄像头总数'
                 },
                 {
                     src: require('../../assets/vi-1-2.png'),
                     name: '',
-                    num: "6",
+                    num: "",
                     unit: '故障数量'
                 },
             ],
@@ -426,6 +327,7 @@ export default {
         },
         videoAllInit() {
             //可用循环代替
+            debugger
             this.videoInit('video-1', 1);
             this.videoInit('video-2', 2);
             this.videoInit('video-3', 3);
@@ -457,6 +359,28 @@ export default {
             this.passRadio = isNaN(result) || Math.abs(result) == Infinity ? '0' : result
             this.leftList1[0].num = passNum + '/' + num
             this.leftList1[1].num = num - passNum;
+        },
+        getEchartData(data) {
+            let mortalityNum = 0;
+            let passNum = 0;
+            for (var n in data) {
+                if (n != 'remove') {
+                    if (data[n].state == '开') {
+                        passNum++;
+                    } else {
+                        mortalityNum++;
+                    }
+                }
+            };
+            return [{
+                    "value": passNum,
+                    "name": "在线"
+                },
+                {
+                    "value": mortalityNum,
+                    "name": "不在线"
+                }
+            ]
         }
     },
     destroyed() {
@@ -524,6 +448,7 @@ export default {
     color: #2ECFFF;
     font-size: 36px;
     background: url("../../assets/vi-2-1.png") 0px 0 no-repeat;
+    cursor: pointer;
 
 }
 
@@ -536,7 +461,7 @@ export default {
     opacity: 0.5;
     font-size: 36px;
     background: url("../../assets/vi-2-3.png") 0px 0 no-repeat;
-
+    cursor: pointer;
 }
 
 .hj-right3 {
@@ -558,7 +483,7 @@ export default {
 .right3-block-new div {
     padding: 7px 8px;
     text-align: right;
-    height: 30px;
+    line-height: 17px;
 }
 
 .right3-block-new {

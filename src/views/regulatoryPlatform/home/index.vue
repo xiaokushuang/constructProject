@@ -29,35 +29,51 @@
           <div class="clear">
             <!--左侧内容-->
             <div class="l leftAll">
-              <div class="left1-class">
-                <left1></left1>
-              </div>
+              <transition appear name="moveL">
+                  <div class="left1-class">
+                    <left1></left1>
+                  </div>
+              </transition>
+              <transition appear name="moveL">
               <div class="left2-class">
                 <left2></left2>
               </div>
+              </transition>
+              <transition appear name="moveL">
               <div class="left3-class">
                 <left3></left3>
               </div>
+              </transition>
+              <transition appear name="moveL">
               <div class="left4-class">
                 <left4></left4>
               </div>
+              </transition>
             </div>
             <!--中间内容-->
             <div class="l centerAll"></div>
             <!--右侧内容-->
             <div class="l rightAll">
+              <transition appear name="moveR">
               <div class="right1-class">
                 <right1></right1>
               </div>
+              </transition>
+              <transition appear name="moveR">
               <div class="right2-class">
                 <right2></right2>
               </div>
+              </transition>
+              <transition appear name="moveR">
               <div class="right3-class">
                 <right3></right3>
               </div>
+              </transition>
+              <transition appear name="moveR">
               <div class="right4-class">
                 <right4></right4>
               </div>
+              </transition>
             </div>
           </div>
       </div>
@@ -75,6 +91,10 @@
   import right4 from './right4'
     export default {
         name: "index",
+      data(){
+       return {
+       }
+      },
         components:{
           left1,
           left2,
@@ -89,6 +109,30 @@
 </script>
 
 <style scoped>
+  /*左侧动画*/
+  .moveL-enter-active,
+  .moveL-leave-active {
+    transition: all 0.5s linear;
+    transform: translateX(0%);
+  }
+  .moveL-enter,
+  .moveL-leave {
+    transform: translateX(-100%);
+  }
+  .moveL-leave-to {
+    transform: translateX(-100%);
+  }
+  /*右侧动画*/
+  .moveR-enter-active,  .moveR-leave-active {
+    transition: all 0.5s linear;
+    transform: translateX(0);
+  }
+  .moveR-enter,  .moveR-leave {
+    transform: translateX(100%);
+  }
+  .moveR-leave-to{
+    transform: translateX(100%);
+  }
   .indexClass{
     background: url("../images/border/bg.png") 0 0 no-repeat;
     height: 1080px;

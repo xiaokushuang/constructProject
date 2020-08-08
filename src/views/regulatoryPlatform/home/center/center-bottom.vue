@@ -19,7 +19,6 @@
   import center4 from './center4'
   import center5 from './center5'
   export default {
-    name: "center1",
     components:{
       center3,
       center4,

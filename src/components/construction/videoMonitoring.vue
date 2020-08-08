@@ -143,6 +143,7 @@
 <script>
 import viLeft1 from './vi-left1'
 import axios from 'axios'
+ import 'videojs-flash'
 export default {
     name: 'videoMonitoring',
     components: {
@@ -156,7 +157,6 @@ export default {
                 this.getPassRadio();
                 this.drawLine();
                 this.videoAllInit()
-
             }
         })
     },
@@ -220,11 +220,17 @@ export default {
                 vdoSrc = this.rightList3NewData[num - 1].src
             }
 
-            // if (vdoSrc) {
-            myVideo.src({
-                src: vdoSrc,
-                type: 'application/x-mpegURL' //在重新添加视频源的时候需要给新的type的值
-            })
+            if (vdoSrc.indexOf(".m3u8") != -1) {
+                myVideo.src({
+                    src: vdoSrc,
+                    type: 'application/x-mpegURL' //在重新添加视频源的时候需要给新的type的值
+                })
+            } else {
+                myVideo.src({
+                    src: vdoSrc,
+                    type: 'rtmp/flv' //在重新添加视频源的时候需要给新的type的值
+                })
+            }
             // }else{
             // myVideo.dispose();
             // }

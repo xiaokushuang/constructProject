@@ -13,7 +13,7 @@
         "offlineDay": "7",
         "onlineDay": "9",
         "time": "2020.07.30",
-        "src": "http://hls01open.ys7.com/openlive/dc89d8edb96f40c8b0f58836eba705f7.hd.m3u8"
+        "src": "rtmp://202.69.69.180:443/webcast/bshdlive-pc"
     }, {
         "state": "关",
         "location": "厂房",

@@ -17,6 +17,7 @@
     "prettier": "^1.12.1",
     "qs": "^6.9.4",
     "video.js": "^7.8.4",
+    "videojs-flash": "^2.2.1",
     "vue": "^2.5.2",
     "vue-amap": "^0.5.10",
     "vue-axios": "^2.1.5",

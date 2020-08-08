@@ -108,7 +108,6 @@
       },
       methods:{
         change(){
-          debugger
           //change、paly表格数据动态滚动
           this.tableData.push(this.tableData[0]);//把第一条数据插入数组最有一条
           this.tableData.shift();//删除数组中第一条数据

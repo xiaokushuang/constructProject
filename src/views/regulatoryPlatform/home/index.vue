@@ -124,7 +124,7 @@
   /*左侧动画*/
   .moveL-enter-active,
   .moveL-leave-active {
-    transition: all 1s linear;
+    transition: all 2s linear;
     transform: translateX(0%);
   }
   .moveL-enter,
@@ -136,7 +136,7 @@
   }
   /*右侧动画*/
   .moveR-enter-active,  .moveR-leave-active {
-    transition: all 1s linear;
+    transition: all 2s linear;
     transform: translateX(0);
   }
   .moveR-enter,  .moveR-leave {

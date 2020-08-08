@@ -6,7 +6,7 @@
           <!--左1-->
           <div style="position: relative">
             <div style="position: absolute;left: 15px;top: 15px;">
-              <img src="../../assets/hj-left1-title.png" alt="">
+              <img src="../../../assets/hj-left1-title.png" alt="">
             </div>
             <div class="hj-left1 clear">
               <!--左1-1-->
@@ -25,11 +25,11 @@
                     </div>
                   </div>
                 </div>
-                <div style="position: absolute;top: 277px;"><img src="../../assets/hj-left-block.png" alt=""></div>
+                <div style="position: absolute;top: 277px;"><img src="../../../assets/hj-left-block.png" alt=""></div>
               </div>
               <!--左1-2-->
               <div class="l" style="margin-right: 50px;">
-                <img src="../../assets/hj-left-circle.png" alt="">
+                <img src="../../../assets/hj-left-circle.png" alt="">
               </div>
               <!--左1-3-->
               <div class="l" style="width:450px">
@@ -47,7 +47,7 @@
                     </div>
                   </div>
                 </div>
-                <div style="position: absolute;top: 277px;"><img src="../../assets/hj-left-block1.png" alt=""></div>
+                <div style="position: absolute;top: 277px;"><img src="../../../assets/hj-left-block1.png" alt=""></div>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@
           <div class="hj-left2">
             <div style="position: relative">
               <div style="position: absolute;left: 15px;top: 15px;">
-                <img src="../../assets/hj-left2-title.png" alt="">
+                <img src="../../../assets/hj-left2-title.png" alt="">
               </div>
               <left2></left2>
             </div>
@@ -66,7 +66,7 @@
           <div class="hj-right1">
             <div style="position: relative">
               <div style="position: absolute;left: 15px;top: 15px;">
-                <img src="../../assets/hj-left3-title.png" alt="">
+                <img src="../../../assets/hj-left3-title.png" alt="">
               </div>
               <div class="clear" style="padding:100px 40px;padding-right: 0;">
                 <div class="l" style="margin-right: 80px;" v-for="data in rightList1">
@@ -79,7 +79,7 @@
           <div class="hj-right2">
             <div style="position: relative">
               <div style="position: absolute;left: 15px;top: 15px;">
-                <img src="../../assets/hj-left4-title.png" alt="">
+                <img src="../../../assets/hj-left4-title.png" alt="">
               </div>
               <div class="clear" style="padding:100px 40px;padding-right: 0;">
                 <div class="l" style="margin-right: 80px;">
@@ -96,7 +96,7 @@
           <div class="hj-right3">
             <div style="position: relative">
               <div style="position: absolute;left: 15px;top: 15px;">
-                <img src="../../assets/hj-left5-title.png" alt="">
+                <img src="../../../assets/hj-left5-title.png" alt="">
               </div>
               <div class="clear" style="padding:90px 10px;">
                 <div class="l right3-block" v-for="data in rightList3">
@@ -129,25 +129,25 @@
             return {
               leftList1:[
                 {
-                  src:require('../../assets/hj-left-block1-1.png'),
+                  src:require('../../../assets/hj-left-block1-1.png'),
                   name:'PM10',
                   num:"24",
                   unit:'ug/m3'
                 },
                 {
-                  src:require('../../assets/hj-left-block1-2.png'),
+                  src:require('../../../assets/hj-left-block1-2.png'),
                   name:'PM2.5',
                   num:"17",
                   unit:'ug/m3'
                 },
                 {
-                  src:require('../../assets/hj-left-block1-3.png'),
+                  src:require('../../../assets/hj-left-block1-3.png'),
                   name:'温度',
                   num:"25",
                   unit:'0C'
                 },
                 {
-                  src:require('../../assets/hj-left-block1-4.png'),
+                  src:require('../../../assets/hj-left-block1-4.png'),
                   name:'湿度',
                   num:"24",
                   unit:'湿度'
@@ -155,25 +155,25 @@
               ],
               leftList3:[
                 {
-                  src:require('../../assets/hj-left-block3-1.png'),
+                  src:require('../../../assets/hj-left-block3-1.png'),
                   name:'风向',
                   num:"北",
                   unit:'风'
                 },
                 {
-                  src:require('../../assets/hj-left-block3-2.png'),
+                  src:require('../../../assets/hj-left-block3-2.png'),
                   name:'风速',
                   num:"17",
                   unit:'0m/s'
                 },
                 {
-                  src:require('../../assets/hj-left-block3-3.png'),
+                  src:require('../../../assets/hj-left-block3-3.png'),
                   name:'噪音',
                   num:"24",
                   unit:'bd'
                 },
                 {
-                  src:require('../../assets/hj-left-block3-4.png'),
+                  src:require('../../../assets/hj-left-block3-4.png'),
                   name:'扬尘',
                   num:"17",
                   unit:'扬尘'
@@ -229,7 +229,7 @@
     margin-bottom: 10px;
     padding: 25px;
     padding-top: 150px;
-    background: url("../../assets/hj-left1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-left1-bg.png") 0 0 no-repeat;
     font-size: 14px;
     color:#fff;
     position: relative;
@@ -237,29 +237,29 @@
   .hj-left2{
     width: 1315px;
     height: 362px;
-    background: url("../../assets/hj-left1-2.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-left1-2.png") 0 0 no-repeat;
   }
   .hj-right1{
     width: 488px;
     height: 242px;
     margin-bottom: 19px;
-    background: url("../../assets/hj-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right1-bg.png") 0 0 no-repeat;
   }
   .hj-right2{
-    background: url("../../assets/hj-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right1-bg.png") 0 0 no-repeat;
     width: 488px;
     height: 242px;
     margin-bottom: 10px;
   }
   .hj-right3{
-    background: url("../../assets/hj-right3-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right3-bg.png") 0 0 no-repeat;
     width: 488px;
     height: 360px;
   }
   .hj-left1-1{
     width: 80px;
     height: 64px;
-    background: url("../../assets/hj-left-block1-0.png") 0px 0 no-repeat;
+    background: url("../../../assets/hj-left-block1-0.png") 0px 0 no-repeat;
     background-size: 100% 100%;
     background-position: center;
     text-align: center;

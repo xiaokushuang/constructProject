@@ -20,7 +20,10 @@
         <div :class="current==index?'higLight-menu-class':''" class=" menu-class l" v-for="(data,index) in navList" @click="navClick(index)">{{data.name}}</div>
     </div>
     <!--下面是组件位置-->
-    <div v-if="current==0" style="width:100%;padding-top:30px;text-align:center"><img src="http://119.3.213.166/images/001.png" width="1825px" center></div>
+    <div v-if="current==0" style="width:100%;padding-top:30px;text-align:center">
+      <!--<img src="http://119.3.213.166/images/001.png" width="1825px" >-->
+      <homeTab></homeTab>
+    </div>
     <div v-if="current==1" style="width:100%;padding-top:15px;text-align:center"><img src="http://119.3.213.166/images/人.jpg" width="1889px" center></div>
     <div v-if="current==2" style="width:100%;padding-top:15px;text-align:center"><img src="http://119.3.213.166/images/机.jpg" width="1886px" center></div>
     <div v-if="current==3" style="width:100%;padding-top:15px;text-align:center"><img src="http://119.3.213.166/images/物.jpg" width="1400px" center></div>
@@ -37,18 +40,20 @@
 </template>
 
 <script>
-import environment5 from './environment5'
-import videoMonitoring from './videoMonitoring';
+import environment5 from './enviroment/environment5'
+import videoMonitoring from './video/videoMonitoring';
+import homeTab from './homeTab/index'
 import merge from 'webpack-merge';
 export default {
     name: "nav1",
     components: {
         environment5,
-        videoMonitoring
+        videoMonitoring,
+        homeTab
     },
     data() {
         return {
-            current: 6,
+            current: 0,
             navList: [{
                     id: '1',
                     name: '首页',

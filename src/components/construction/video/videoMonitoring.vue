@@ -33,7 +33,7 @@
             <div class="hj-right2">
                 <div style="position: relative">
                     <div style="position: absolute;left: 15px;top: 15px;">
-                        <img src="../../assets/vi-5.png" alt="">
+                        <img src="../../../assets/vi-5.png" alt="">
                     </div>
                     <div class="clear" style="padding:100px 40px;padding-right: 0;">
                         <div v-for="(data,index) in viNumList" @click="setActive(index)" :key="'viNum' + index" :class="[index == isActive ? 'viNum' : 'viNum-2']" class="l viNum" style="margin-right: 50px;">
@@ -45,7 +45,7 @@
             <div class="hj-right3">
                 <div style="position: relative">
                     <div style="position: absolute;left: 15px;top: 15px;">
-                        <img src="../../assets/vi-6.png" alt="">
+                        <img src="../../../assets/vi-6.png" alt="">
                     </div>
                     <div class="clear" style="padding:70px 10px;">
                         <div style="padding-left:12px">
@@ -184,13 +184,13 @@ export default {
                 },
             ],
             leftList1: [{
-                    src: require('../../assets/vi-1-1.png'),
+                    src: require('../../../assets/vi-1-1.png'),
                     name: '',
                     num: "",
                     unit: '摄像头总数'
                 },
                 {
-                    src: require('../../assets/vi-1-2.png'),
+                    src: require('../../../assets/vi-1-2.png'),
                     name: '',
                     num: "",
                     unit: '故障数量'
@@ -404,7 +404,7 @@ export default {
 .vi-right-1 {
     width: 1315px;
     height: 873px;
-    background: url("../../assets/vi-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/vi-right1-bg.png") 0 0 no-repeat;
     margin-left: 20px;
     background-size: 100% 100%;
 }
@@ -413,18 +413,18 @@ export default {
     width: 488px;
     height: 242px;
     margin-bottom: 19px;
-    background: url("../../assets/hj-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right1-bg.png") 0 0 no-repeat;
 }
 
 .hj-right2 {
-    background: url("../../assets/hj-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right1-bg.png") 0 0 no-repeat;
     width: 488px;
     height: 242px;
     margin-bottom: 10px;
 }
 
 .hj-right3 {
-    background: url("../../assets/hj-right3-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right3-bg.png") 0 0 no-repeat;
     width: 488px;
     height: 360px;
 }
@@ -432,7 +432,7 @@ export default {
 .hj-left1-1 {
     width: 80px;
     height: 64px;
-    background: url("../../assets/hj-left-block1-0.png") 0px 0 no-repeat;
+    background: url("../../../assets/hj-left-block1-0.png") 0px 0 no-repeat;
     background-size: 100% 100%;
     background-position: center;
     text-align: center;
@@ -449,7 +449,7 @@ export default {
     height: 73px;
     color: #2ECFFF;
     font-size: 36px;
-    background: url("../../assets/vi-2-1.png") 0px 0 no-repeat;
+    background: url("../../../assets/vi-2-1.png") 0px 0 no-repeat;
     cursor: pointer;
 
 }
@@ -462,12 +462,12 @@ export default {
     color: #2ECFFF;
     opacity: 0.5;
     font-size: 36px;
-    background: url("../../assets/vi-2-3.png") 0px 0 no-repeat;
+    background: url("../../../assets/vi-2-3.png") 0px 0 no-repeat;
     cursor: pointer;
 }
 
 .hj-right3 {
-    background: url("../../assets/hj-right3-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right3-bg.png") 0 0 no-repeat;
     width: 488px;
     height: 360px;
 }
@@ -495,7 +495,7 @@ export default {
 .video-block {
     width: 1316px;
     height: 881px;
-    background: url("../../assets/hj-right1-bg.png") 0 0 no-repeat;
+    background: url("../../../assets/hj-right1-bg.png") 0 0 no-repeat;
     margin-bottom: 10px;
 }
 
@@ -503,7 +503,7 @@ export default {
     width: 620px;
     height: 403px;
     margin-bottom: 19px;
-    background: url("../../assets/video-border.png") 0 0 no-repeat;
+    background: url("../../../assets/video-border.png") 0 0 no-repeat;
     background-size: 100% 100%;
     margin: 20px 10px 10px 20px;
     display: inline-block;
@@ -524,7 +524,7 @@ video {
 .switchOn {
     width: 24px;
     height: 12.5px;
-    background: url("../../assets/switch-on.png") 0 0 no-repeat;
+    background: url("../../../assets/switch-on.png") 0 0 no-repeat;
     display: inline-block;
     background-size: 100% 100%;
 }
@@ -532,7 +532,7 @@ video {
 .switchOff {
     width: 24px;
     height: 12.5px;
-    background: url("../../assets/switch-off.png") 0 0 no-repeat;
+    background: url("../../../assets/switch-off.png") 0 0 no-repeat;
     display: inline-block;
     background-size: 100% 100%;
 }

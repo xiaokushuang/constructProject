@@ -143,7 +143,7 @@
 <script>
 import viLeft1 from './vi-left1'
 import axios from 'axios'
- import 'videojs-flash'
+import 'videojs-flash'
 export default {
     name: 'videoMonitoring',
     components: {
@@ -333,7 +333,6 @@ export default {
         },
         videoAllInit() {
             //可用循环代替
-            debugger
             this.videoInit('video-1', 1);
             this.videoInit('video-2', 2);
             this.videoInit('video-3', 3);
@@ -389,9 +388,6 @@ export default {
             ]
         }
     },
-    destroyed() {
-
-    }
 }
 </script>
 

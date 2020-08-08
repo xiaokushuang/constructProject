@@ -6,7 +6,7 @@
         "offlineDay": "7",
         "onlineDay": "9",
         "time": "2020.07.30",
-        "src": "http://hls01open.ys7.com/openlive/4f475be8755e4c499a2d4abfffdeb088.hd.m3u8"
+        "src": "rtmp://39.101.210.18:10106/camera/113-34030000001310000042"
     }, {
         "state": "关",
         "location": "门口",
@@ -20,7 +20,7 @@
         "offlineDay": "7",
         "onlineDay": "9",
         "time": "2020.07.30",
-        "src": "http://hls01open.ys7.com/openlive/ede11c83b99f44cdba2638800857c463.hd.m3u8"
+        "src": "rtmp://39.101.210.18:10106/camera/113-34030000001310000034"
     
     }, {
         "state": "关",
@@ -28,7 +28,7 @@
         "offlineDay": "7",
         "onlineDay": "9",
         "time": "2020.07.30",
-        "src": "http://hls01open.ys7.com/openlive/b283c68f1ac041649f464bdb52040a79.hd.m3u8"
+        "src": "rtmp://39.101.210.18:10106/camera/113-34030000001310000041"
     }, {
         "state": "开",
         "location": "厂房",

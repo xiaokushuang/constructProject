@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="l right-2-1-block-2">
-                <span class="right-2-1-text-2">6</span>
+                <span class="right-2-1-text-2">{{num1}}</span>
                 <span class="right-2-1-text-3">质量整改单</span>
             </div>
             <div class="l right-2-1-block-3">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="l right-2-1-block-4">
-                <span class="right-2-1-text-6">15</span>
+                <span class="right-2-1-text-6">{{num2}}</span>
                 <span class="right-2-1-text-7">质量检验合格</span>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="right-2-3-block-2">
+            <div class="right-2-3-block-2" v-if="currentProData[1].name">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-5">
                     <span class="right-2-3-text-3">{{currentProData[1].name}}</span><br>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="right-2-3-block-3">
+            <div class="right-2-3-block-3" v-if="currentProData[2].name">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-6">
                     <span class="right-2-3-text-3">{{currentProData[2].name}}</span><br>
@@ -61,6 +61,8 @@ export default {
     name: "right2",
     data() {
         return {
+            num1:'6',
+            num2:'15',
             xData: ['季度一', '季度二', '季度三', '季度四'],
             yData: [{
                     name: '合格',

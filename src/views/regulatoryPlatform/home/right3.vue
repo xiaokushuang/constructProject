@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="l right-3-1-block-2">
-                <span class="right-3-1-text-2">6</span>
+                <span class="right-3-1-text-2">{{num1}}</span>
                 <span class="right-3-1-text-3">摄像头总数</span>
             </div>
             <div class="l right-3-1-block-3">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="l right-3-1-block-4">
-                <span class="right-3-1-text-6">15</span>
+                <span class="right-3-1-text-6">{{num2}}</span>
                 <span class="right-3-1-text-7">在线视频</span>
             </div>
         </div>
@@ -47,6 +47,8 @@ export default {
     name: "right3",
     data() {
         return {
+            num1:"6",
+            num2:'15',
             proData: [{
                     time: '2020.7.16 12:30',
                     warnType: '未戴安全帽2人',

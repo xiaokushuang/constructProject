@@ -9,15 +9,15 @@
                 </div>
             </div>
             <div class="l right-1-1-block-2">
-                <span class="right-1-1-text-2">6</span>
+                <span class="right-1-1-text-2">{{num1}}</span>
                 <span class="right-1-1-text-3">发现隐患</span>
             </div>
             <div class="l right-1-1-block-3">
-                <span class="right-1-1-text-4">8</span>
+                <span class="right-1-1-text-4">{{num2}}</span>
                 <span class="right-1-1-text-5">整改中</span>
             </div>
             <div class="l right-1-1-block-4">
-                <span class="right-1-1-text-6">15</span>
+                <span class="right-1-1-text-6">{{num3}}</span>
                 <span class="right-1-1-text-7">升级量</span>
             </div>
         </div>
@@ -57,7 +57,10 @@ export default {
     name: "right1",
     data() {
         return {
-            prosData: [{
+            num1: '6',
+            num2: '8',
+            num3: '15',
+            proData: [{
                     name: '项目一',
                     warnType: '现场安全管理-临时用电',
                     upgradeNum: "升级一次"
@@ -92,8 +95,8 @@ export default {
         }
     },
     mounted() {
-        this.currentProData = this.prosData[0];
-        this.changeData(this.prosData);
+        this.currentProData = this.proData[0];
+        this.changeData(this.proData);
         this.$nextTick(function () {
             this.drawLine();
         })
@@ -328,7 +331,7 @@ export default {
     width: 19px;
     position: relative;
     top: 17px;
-    left: 17px;
+    left: 18px;
     height: 19px;
     background: url('../images/right/right-icon-2.png') no-repeat;
 }

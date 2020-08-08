@@ -76,31 +76,31 @@ export default {
                 }
             ],
             proData: [{
-                    name: '项目1',
+                    name: '项目一',
                     value: '合格'
                 },
                 {
-                    name: '项目2',
+                    name: '项目二',
                     value: '不合格'
                 },
                 {
-                    name: '项目3',
+                    name: '项目三',
                     value: '合格'
                 },
                 {
-                    name: '项目4',
+                    name: '项目四',
                     value: '合格'
                 },
                 {
-                    name: '项目5',
+                    name: '项目五',
                     value: '不合格'
                 },
                 {
-                    name: '项目6',
+                    name: '项目六',
                     value: '合格'
                 },
                 {
-                    name: '项目7',
+                    name: '项目七',
                     value: '不合格'
                 }
             ],
@@ -111,7 +111,6 @@ export default {
         this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
     },
     mounted() {
-        
         this.changeData(this.proData);
         this.$nextTick(function () {
             this.drawLine();

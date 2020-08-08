@@ -130,7 +130,7 @@ export default {
                 // },
                 legend: {
                     orient: 'horizontal',
-                    left: '13%',
+                    left: '0%',
                     top: '55%',
                     textStyle: {
                         color: '#c2d8ff',
@@ -140,7 +140,7 @@ export default {
                     },
                     itemHeight: 6,
                     itemWidth: 15,
-                    data: ['已升级', '已整改', '待整改']
+                    data: ['关键节点延期', '业主节点延期']
                 },
                 color: ['#8ED840', '#FB9A55', '#EE3E3E'],
                 series: [{
@@ -166,16 +166,12 @@ export default {
                     },
                     data: [{
                             value: 335,
-                            name: '已升级'
+                            name: '关键节点延期'
                         },
                         {
                             value: 335,
-                            name: '已整改'
+                            name: '业主节点延期'
                         },
-                        {
-                            value: 335,
-                            name: '待整改'
-                        }
                     ]
                 }]
             });

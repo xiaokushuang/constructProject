@@ -2,10 +2,10 @@
     <div class="center-top-class">
       <div class="clear">
         <div class="l center-top-1">
-          <center1></center1>
+          <!--<center1></center1>-->
         </div>
         <div class="l center-top-2">
-          <center2></center2>
+          <!--<center2></center2>-->
         </div>
       </div>
     </div>

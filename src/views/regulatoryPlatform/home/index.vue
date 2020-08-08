@@ -55,7 +55,7 @@
             <!--中间内容-->
             <div class="l centerAll">
               <centerTop style="position: absolute;top: 116px;left: 510px;"></centerTop>
-              <centerbottom style="position: absolute;bottom: 0;left: 510px;"></centerbottom>
+              <centerbottom style="position: absolute;bottom: 10px;left: 510px;"></centerbottom>
             </div>
             <!--右侧内容-->
             <div class="l rightAll">
@@ -168,15 +168,16 @@
     margin-right: 12px;
   }
 .contentClass{
-  width: 100%;
-  height: 965px;
-  padding:10px;
   background: url("../images/border/bg-2.png") no-repeat;
+  width: 100%;
+  height: 1080px;
+  padding: 20px;
+  background-size: 100% 100%;
 }
   .leftAll{
     width: 497px;
     position: absolute;
-    left: 0;
+    left: 25px;
     top: 101px;
   }
   .centerAll{
@@ -187,7 +188,7 @@
   .rightAll{
     width: 497px;
     position: absolute;
-    right: 0;
+    right: 25px;
     top: 101px;
   }
   .left1-class{

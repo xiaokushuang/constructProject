@@ -43,9 +43,10 @@
     background: url("../../images/border/center1.png") 0 0 no-repeat;
   }
   .center-top-5{
-    width: 867px;
+    width: 860px;
     height: 191px;
     margin-top: 10px;
     background: url("../../images/border/center2.png") 0 0 no-repeat;
+    background-size: 100% 100%;
   }
 </style>

@@ -9,12 +9,12 @@
             :clickable="maps.enableclick"
             :events="markerEvents">
           </el-amap-marker>
-         <!-- <el-amap-info-window
+          <el-amap-info-window
             v-if="currentWindow"
             :position="currentWindow.position"
             :visible="currentWindow.visible"
             :content="currentWindow.content">
-          </el-amap-info-window>-->
+          </el-amap-info-window>
         </div>
       </el-amap>
     </div>
@@ -31,18 +31,36 @@
       me.city = me.city || '黑龙江';
       return {
         currentWindow:{
-          position:[44.04,46.40],
+          position:[118.803687,31.984702],
           visible:false,
-          content:'',
+          content:`<div class="tipClass" onclick="window.open('/#/construction','_self')">
+                      <div class="clear">
+                        <div class="l" style="font-size:16px">南部新城夹岗区域教育配套建设工程项目</div>
+                        <div class="r detailEnterClass" style="font-size:16px;color: #5eeeff;cursor: pointer;">详情></div>
+                     </div>
+                     <div>
+                        <div>南部新城夹岗区</div>
+                      </div>
+                      <div class="clear">
+                        <div style="width:160px;height:90px;margin-right:16px;" class="l">
+                        <img src="http://119.3.213.166/images/spot.png" width="160px" alt="">
+                       </div>
+                        <div class="l" style="line-height:23px;">
+                            <div>施工许可证号JYG-2019-00009</div>
+                            <div>建筑面积200m²</div>
+                            <div>结构形式框架结构</div>
+                            <div>工程进度</div>
+                          </div>
+                      </div>
+                   </div>`
         },
-
         mapStyle: 'amap://styles/darkblue',
         list:[],
         currIndex:0,
         zoom: 11,
         center: [118.803687,31.984702],
         events:{
-      init: (o) => {
+          init: (o) => {
             o.setCity(me.city,result => {
               if(result && result.length > 0){
                 me.zoom = 11;
@@ -85,11 +103,11 @@
             me.currentWindow.visible = !me.currentWindow.visible
             if(me.currentWindow.visible){
               console.log('detailEnterClass',document.querySelector('._map .tipClass'))
-             /* me.$nextTick(()=>{
-                if(document.querySelector('.detailEnterClass')){
-                  console.log('detailEnterClass',document.querySelector('.detailEnterClass'))
-                }
-              })*/
+              /* me.$nextTick(()=>{
+                 if(document.querySelector('.detailEnterClass')){
+                   console.log('detailEnterClass',document.querySelector('.detailEnterClass'))
+                 }
+               })*/
             }
           }
         },
@@ -267,14 +285,14 @@
   .amap-info-close {
     display: none;
   }
-   .bottom-center .amap-info-sharp {
-     bottom: -8px;
-     left: 50%;
-     margin-left: -8px;
-     border-left: 8px solid transparent;
-     border-right: 8px solid transparent;
-     border-top: 8px solid #023866;
-   }
+  .bottom-center .amap-info-sharp {
+    bottom: -8px;
+    left: 50%;
+    margin-left: -8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #023866;
+  }
   ._map{
     width: 100%;
     height: 100%;

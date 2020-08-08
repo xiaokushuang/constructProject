@@ -1,6 +1,6 @@
 <template>
     <div class="indexClass">
-      <newMap style="position: absolute"></newMap>
+      <newMap class="" style="position: absolute;"></newMap>
       <!--头部header-->
       <div >
         <header class="headerClass">
@@ -54,8 +54,12 @@
             </div>
             <!--中间内容-->
             <div class="l centerAll">
-              <centerTop style="position: absolute;top: 116px;left: 510px;"></centerTop>
-              <centerbottom style="position: absolute;bottom: 10px;left: 510px;"></centerbottom>
+              <transition appear name="moveT">
+                <centerTop style="position: absolute;top: 116px;left: 510px;"></centerTop>
+              </transition>
+              <transition appear name="moveB">
+                <centerbottom style="position: absolute;bottom: 10px;left: 510px;"></centerbottom>
+              </transition>
             </div>
             <!--右侧内容-->
             <div class="l rightAll">
@@ -124,7 +128,7 @@
   /*左侧动画*/
   .moveL-enter-active,
   .moveL-leave-active {
-    transition: all 2s linear;
+    transition: all 1s linear;
     transform: translateX(0%);
   }
   .moveL-enter,
@@ -136,7 +140,7 @@
   }
   /*右侧动画*/
   .moveR-enter-active,  .moveR-leave-active {
-    transition: all 2s linear;
+    transition: all 1s linear;
     transform: translateX(0);
   }
   .moveR-enter,  .moveR-leave {
@@ -145,9 +149,33 @@
   .moveR-leave-to{
     transform: translateX(100%);
   }
+  /*上侧动画*/
+  .moveT-enter-active,
+  .moveT-leave-active {
+    transition: all 1s linear;
+    transform: translateY(0%);
+  }
+  .moveT-enter,
+  .moveT-leave {
+    transform: translateY(-100%);
+  }
+  .moveT-leave-to {
+    transform: translateY(-100%);
+  }
+  /*下侧动画*/
+  .moveB-enter-active,  .moveB-leave-active {
+    transition: all 1s linear;
+    transform: translateY(0);
+  }
+  .moveB-enter,  .moveB-leave {
+    transform: translateY(100%);
+  }
+  .moveB-leave-to{
+    transform: translateY(100%);
+  }
   .indexClass{
     background: url("../images/border/bg.png") 0 0 no-repeat;
-    height: 1080px;
+    height: 1123px;
     position: relative;
   }
 .headerClass{
@@ -174,6 +202,13 @@
   padding: 20px;
   background-size: 100% 100%;
 }
+  .mapContentClass{
+    background: url("../images/border/bg-2.png") no-repeat;
+    width: 100%;
+    height: 1080px;
+    padding: 20px;
+    background-size: 100% 100%;
+  }
   .leftAll{
     width: 497px;
     position: absolute;

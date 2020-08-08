@@ -1,10 +1,11 @@
 <template>
-  <div class="_map">
+  <div class="_map new-map-class">
     <div class="amap-page-container">
       <el-amap ref="map" :mapStyle="mapStyle"  vid="amapDemo" :plugin="plugin"  :zoom="zoom" :center="center" class="amap-demo" :events="events">
         <div v-for="mark in maps.markpoint">
           <el-amap-marker
             :position="mark.point"
+            :icon="mark.markImg"
             :label="mark.name"
             :clickable="maps.enableclick"
             :events="markerEvents">
@@ -91,10 +92,14 @@
           zoom:4,
           center: [105, 35],
           markpoint:[
-            {name:'',point:[126.04,46.20]},
-            {name:'',point:[127.04,46.30]},
-            {name:'',point:[128.04,46.40]},
-            {name:'',point:[129.04,46.50]},
+            {name:'',point:[126.04,46.20],markImg:require('../images/center/center-map-1.png')},
+            {name:'',point:[127.04,46.30],markImg:require('../images/center/center-map-2.png')},
+            {name:'',point:[128.04,46.40],markImg:require('../images/center/center-map-3.png')},
+            {name:'',point:[129.04,46.50],markImg:require('../images/center/center-map-4.png')},
+            {name:'',point:[126.04,43.20],markImg:require('../images/center/center-map-1.png')},
+            {name:'',point:[127.04,44.30],markImg:require('../images/center/center-map-2.png')},
+            {name:'',point:[128.04,45.40],markImg:require('../images/center/center-map-3.png')},
+            {name:'',point:[123.04,46.50],markImg:require('../images/center/center-map-4.png')},
           ],
         },
         markerEvents: {
@@ -109,7 +114,7 @@
                  }
                })*/
             }
-          }
+          },
         },
         searchOption: {
           city: me.city,
@@ -246,7 +251,13 @@
    *
    * */
 </script>
-<style>
+<style lang="scss">
+  .new-map-class{
+    .amap-info {
+      left: 567px !important;
+      top: 432px !important;
+    }
+  }
   .tipClass{
     color: rgba(255, 255, 255, 0.8);
     font-size: 13px;
@@ -313,9 +324,7 @@
   .amap-logo {
     display: none;
   }
-  .amap-info {
-    top: 290px !important;
-  }
+
   .amap-copyright {
     bottom:-100px;
     display: none;

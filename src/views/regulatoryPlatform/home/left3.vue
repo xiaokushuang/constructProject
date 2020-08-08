@@ -123,9 +123,9 @@ export default {
                     },
                     itemHeight: 6,
                     itemWidth: 15,
-                    data: ['已升级', '已整改', '待整改']
+                    data: ['蓝色预警', '橙色预警', '红色预警']
                 },
-                color: ['#8ED840', '#FB9A55', '#EE3E3E'],
+                color: ['#5db0fd', '#fb9a55', '#ee3e3e'],
                 series: [{
                     type: 'pie',
                     radius: ['65%', '80%'],
@@ -149,15 +149,15 @@ export default {
                     },
                     data: [{
                             value: 335,
-                            name: '已升级'
+                            name: '蓝色预警'
                         },
                         {
                             value: 335,
-                            name: '已整改'
+                            name: '橙色预警'
                         },
                         {
                             value: 335,
-                            name: '待整改'
+                            name: '红色预警'
                         }
                     ]
                 }]

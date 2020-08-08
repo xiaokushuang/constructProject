@@ -29,7 +29,7 @@
                 <div class="l right-1-3-icon-1"></div>
                 <div class="l right-1-3-block-4">
                     <span class="right-1-3-text-1">项目名称</span><br>
-                    <span class="right-1-3-text-2">项目三</span>
+                    <span class="right-1-3-text-2">{{currentProData.name}}</span>
                 </div>
             </div>
 
@@ -37,17 +37,16 @@
                 <div class="l right-1-3-icon-1"></div>
                 <div class="l right-1-3-block-5">
                     <span class="right-1-3-text-3">隐患类型</span><br>
-                    <span class="right-1-3-text-4">现场安全管理-临时用电</span>
+                    <span class="right-1-3-text-4">{{currentProData.warnType}}</span>
                 </div>
             </div>
 
             <div class="right-1-3-block-3">
                 <div class="l right-1-3-icon-1"></div>
                 <div class="l right-1-3-block-6">
-                    <span class="right-1-3-text-5">升级一次</span>
+                    <span class="right-1-3-text-5">{{currentProData.upgradeNum}}</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -58,13 +57,45 @@ export default {
     name: "right1",
     data() {
         return {
-
+            prosData: [{
+                    name: '项目一',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级一次"
+                },
+                {
+                    name: '项目二',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级二次"
+                },
+                {
+                    name: '项目三',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级三次"
+                },
+                {
+                    name: '项目四',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级四次"
+                },
+                {
+                    name: '项目五',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级五次"
+                },
+                {
+                    name: '项目六',
+                    warnType: '现场安全管理-临时用电',
+                    upgradeNum: "升级六次"
+                }
+            ],
+            currentProData: {},
         }
     },
     mounted() {
+        this.currentProData = this.prosData[0],
+            this.changeData(this.prosData);
         this.$nextTick(function () {
             this.drawLine();
-
         })
     },
     methods: {
@@ -129,6 +160,17 @@ export default {
                 }]
             });
         },
+        changeData(data) {
+            let count = 0;
+            let maxCount = data.length
+            setInterval(() => {
+                if (maxCount == count) {
+                    count = 0;
+                }
+                this.currentProData = data[count]
+                count++;
+            }, 1000);
+        }
     }
 }
 </script>

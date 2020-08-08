@@ -107,7 +107,6 @@ export default {
     },
     mounted() {
         this.currentProData = [this.proData[0], this.proData[1], this.proData[2]],
-
         this.changeData(this.proData);
         this.$nextTick(function () {
             this.drawLine();
@@ -280,7 +279,6 @@ export default {
                 if (maxCount == count) {
                     count = 0;
                 }
-                let result = [];
                 let data1 = data[parseInt(0 + count * 3)] ? data[parseInt(0 + count * 3)] : {
                     name: '',
                     value: ''
@@ -297,7 +295,6 @@ export default {
                     data1, data2, data3
                 ]
                 count++;
-
             }, 1000);
         }
     }

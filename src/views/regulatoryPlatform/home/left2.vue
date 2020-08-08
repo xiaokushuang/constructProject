@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="l right-1-2">
-            <div id="myChart-right-1" :style="{width: '102px', height: '160px'}"></div>
+            <div id="myChart-left-1" :style="{width: '102px', height: '160px'}"></div>
         </div>
         <div class="l right-1-3">
             <div class="right-1-3-block-1">
@@ -69,7 +69,7 @@ export default {
     methods: {
         drawLine() {
             // 基于准备好的dom，初始化echarts实例
-            let myChart = this.$echarts.init(document.getElementById('myChart-right-1'))
+            let myChart = this.$echarts.init(document.getElementById('myChart-left-1'))
             // 绘制图表
             myChart.setOption({
                 // tooltip: {

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="right-2">
-        <div class="title-1">项目安全</div>
+        <div class="title-1">项目质量</div>
         <div class="l right-2-1">
             <div class="l right-2-1-block-1">
                 <div class="right-2-1-icon-1">
@@ -30,26 +30,27 @@
             <div class="right-2-3-block-1">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-4">
-                    <span class="right-2-3-text-1">项目名称</span><br>
-                    <span class="right-2-3-text-2">项目三</span>
+                    <span class="right-2-3-text-1">{{currentProData[0].name}}</span><br>
+                    <span class="right-2-3-text-4" :class="[currentProData[0].value == '合格' ? 'pass' : 'no-pass']">{{currentProData[0].value}}</span>
                 </div>
             </div>
 
             <div class="right-2-3-block-2">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-5">
-                    <span class="right-2-3-text-3">隐患类型</span><br>
-                    <span class="right-2-3-text-4">现场安全管理-临时用电</span>
+                    <span class="right-2-3-text-3">{{currentProData[1].name}}</span><br>
+                    <span class="right-2-3-text-4" :class="[currentProData[1].value == '合格' ? 'pass' : 'no-pass']">{{currentProData[1].value}}</span>
                 </div>
             </div>
 
             <div class="right-2-3-block-3">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-6">
-                    <span class="right-2-3-text-5">升级一次</span>
+                    <span class="right-2-3-text-3">{{currentProData[2].name}}</span><br>
+                    <span class="right-2-3-text-4" :class="[currentProData[2].value == '合格' ? 'pass' : 'no-pass']">{{currentProData[2].value}}</span>
                 </div>
             </div>
-
+            <!-- {{currentProData}} -->
         </div>
     </div>
 </div>
@@ -60,16 +61,64 @@ export default {
     name: "right2",
     data() {
         return {
-
+            xData: ['季度一', '季度二', '季度三', '季度四'],
+            yData: [{
+                    name: '合格',
+                    type: 'bar',
+                    data: [18203, 23489, 29034, 104970, 131744, 630230]
+                },
+                {
+                    name: '2012年',
+                    type: 'bar',
+                    data: [19325, 23438, 31000, 121594, 134141, 681807]
+                }
+            ],
+            proData: [{
+                    name: '项目1',
+                    value: '合格'
+                },
+                {
+                    name: '项目2',
+                    value: '不合格'
+                },
+                {
+                    name: '项目3',
+                    value: '合格'
+                },
+                {
+                    name: '项目4',
+                    value: '合格'
+                },
+                {
+                    name: '项目5',
+                    value: '不合格'
+                },
+                {
+                    name: '项目6',
+                    value: '合格'
+                },
+                {
+                    name: '项目7',
+                    value: '不合格'
+                }
+            ],
+            currentProData: [],
         }
     },
     mounted() {
-        this.drawLine();
+        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]],
+
+        this.changeData(this.proData);
+        this.$nextTick(function () {
+            this.drawLine();
+        })
     },
     methods: {
         drawLine() {
             // 基于准备好的dom，初始化echarts实例
             let myChart = this.$echarts.init(document.getElementById('myChart-right-2'))
+            var color = ['rgba(26,201,234', 'rgba(134,255,183', 'rgba(26,201,234', 'rgba(134,255,183', ]
+
             // 绘制图表
             myChart.setOption({
                 color: ['#3398DB'],
@@ -79,6 +128,11 @@ export default {
                         type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                     }
                 },
+                // legend: {
+                //     data: ['合格', '不合格'],
+                //     top:'40%'
+
+                // },
                 grid: {
                     left: '3%',
                     right: '4%',
@@ -87,22 +141,165 @@ export default {
                 },
                 xAxis: [{
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data: this.xData,
                     axisTick: {
                         alignWithLabel: true
+                    },
+                    axisLabel: {
+                        formatter: function (value) {
+                            return value.split("").join("\n")
+                        },
+                        color: '#fff',
                     }
                 }],
                 yAxis: [{
-                    type: 'value'
+                    type: 'value',
+                    axisLabel: {
+                        color: '#fff',
+                    },
                 }],
+                grid: {
+                    y: 10,
+                    x: '20%'
+                },
                 series: [{
-                    name: '直接访问',
-                    type: 'bar',
-                    barWidth: '60%',
-                    data: [10, 52, 200, 334, 390, 330, 220]
-                }]
+                        name: '合格',
+                        type: 'bar',
+                        data: [10, 20, 30, 40],
+                        type: 'bar',
+                        barWidth: '20%',
+                        itemStyle: {
+                            //柱形图圆角，鼠标移上去效果
+                            emphasis: {
+                                barBorderRadius: [10, 10, 10, 10],
+                                color: {
+                                    type: "linear",
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                            offset: 0,
+                                            color: "rgba(103,203,146)" // 100% 处的颜色
+                                        },
+                                        {
+                                            offset: 1,
+                                            color: "rgba(25,40,87)" // 0% 处的颜色
+
+                                        }
+                                    ],
+                                    globalCoord: false // 缺省为 false
+                                }
+                            },
+
+                            normal: { //颜色渐变
+                                barBorderRadius: [10, 10, 10, 10],
+                                color: {
+                                    type: "linear",
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                            offset: 0,
+                                            color: "rgba(103,203,146)" // 100% 处的颜色
+                                        },
+                                        {
+                                            offset: 1,
+                                            color: "rgba(25,40,87)" // 0% 处的颜色
+
+                                        }
+                                    ],
+                                    globalCoord: false // 缺省为 false
+                                }
+                            }
+                        },
+
+                    },
+                    {
+                        name: '不合格',
+                        type: 'bar',
+                        data: [10, 20, 30, 40],
+                        type: 'bar',
+                        barWidth: '20%',
+                        itemStyle: {
+                            //柱形图圆角，鼠标移上去效果
+                            emphasis: {
+                                barBorderRadius: [10, 10, 10, 10],
+                                color: {
+                                    type: "linear",
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                            offset: 0,
+                                            color: "rgba(243,143,84)" // 100% 处的颜色
+                                        },
+                                        {
+                                            offset: 1,
+
+                                            color: "rgba(25,40,87)" // 0% 处的颜色
+                                        }
+                                    ],
+                                    globalCoord: false // 缺省为 false
+                                }
+                            },
+                            normal: {
+                                //柱形图圆角，初始化效果
+                                barBorderRadius: [10, 10, 10, 10],
+                                color: {
+                                    type: "linear",
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                            offset: 0,
+                                            color: "rgba(243,143,84)" // 100% 处的颜色
+                                        },
+                                        {
+                                            offset: 1,
+
+                                            color: "rgba(25,40,87)" // 0% 处的颜色
+                                        }
+                                    ],
+                                    globalCoord: false // 缺省为 false
+                                }
+                            },
+                        }
+                    },
+                ]
             });
         },
+        changeData(data) {
+            let count = 0;
+            let maxCount = parseInt(data.length / 3);
+            maxCount += data.length % 3 == 0 ? 0 : 1;
+            setInterval(() => {
+                if (maxCount == count) {
+                    count = 0;
+                }
+                let result = [];
+                let data1 = data[parseInt(0 + count * 3)] ? data[parseInt(0 + count * 3)] : {
+                    name: '',
+                    value: ''
+                }
+                let data2 = data[parseInt(1 + count * 3)] ? data[parseInt(1 + count * 3)] : {
+                    name: '',
+                    value: ''
+                }
+                let data3 = data[parseInt(2 + count * 3)] ? data[parseInt(2 + count * 3)] : {
+                    name: '',
+                    value: ''
+                }
+                this.currentProData = [
+                    data1, data2, data3
+                ]
+                count++;
+
+            }, 1000);
+        }
     }
 }
 </script>
@@ -113,18 +310,25 @@ export default {
 }
 
 .title-1 {
-    padding: 9px 0px 26px 70px;
+    padding: 0px 0px 40px 70px;
+    height: 24px;
+    color: #ffffff;
+    font-family: "Microsoft YaHei";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 1.5px;
 }
 
 .right-2 {
-    background-image: url('../images/right/right-border-1.png');
+    /* background-image: url('../images/right/right-border-1.png'); */
     width: 497px;
     height: 252px;
 
 }
 
 .right-2-1 {
-    width: 142px;
+    width: 170px;
     height: 151px;
     padding-left: 18px;
 }
@@ -132,14 +336,14 @@ export default {
 .right-2-2 {
     width: 188px;
     height: 170px;
-    margin-left: 52px;
-    
+    margin-left: 22px;
+
 }
 
 .right-2-3 {
-    width: 124px;
+    width: 110px;
     height: 151px;
-    margin-left: 48px;
+    margin-left: 5px;
 }
 
 .right-2-1-block-1 {
@@ -148,7 +352,7 @@ export default {
 }
 
 .right-2-1-block-2 {
-    width: 56px;
+    width: 84px;
     height: 45px;
     font-size: 14px;
     font-weight: 290;
@@ -166,7 +370,7 @@ export default {
 }
 
 .right-2-1-block-4 {
-    width: 56px;
+    width: 84px;
     height: 45px;
     font-size: 14px;
     font-weight: 290;
@@ -305,7 +509,6 @@ export default {
 .right-2-3-block-6 {
     line-height: 19px;
     width: calc(100% - 12px);
-    margin-top: 8px;
 }
 
 .right-2-3-text-1 {
@@ -333,14 +536,11 @@ export default {
 }
 
 .right-2-3-text-4 {
-    color: #5db0fd;
+    color: #ffffff;
     font-family: "Microsoft YaHei";
     font-size: 12px;
     font-weight: 290;
     line-height: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .right-2-3-text-5 {
@@ -349,5 +549,13 @@ export default {
     font-size: 12px;
     font-weight: 290;
     line-height: 16px;
+}
+
+.pass {
+    color: #6ffcaa;
+}
+
+.no-pass {
+    color: #ee3e3e;
 }
 </style>

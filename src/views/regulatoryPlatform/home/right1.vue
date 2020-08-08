@@ -62,7 +62,10 @@ export default {
         }
     },
     mounted() {
-        this.drawLine();
+        this.$nextTick(function () {
+            this.drawLine();
+
+        })
     },
     methods: {
         drawLine() {
@@ -136,11 +139,18 @@ export default {
 }
 
 .title-1 {
-    padding: 9px 0px 26px 70px;
+    padding: 0px 0px 50px 70px;
+    height: 24px;
+    color: #ffffff;
+    font-family: "Microsoft YaHei";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 1.5px;
 }
 
 .right-1 {
-    background-image: url('../images/right/right-border-1.png');
+    /* background-image: url('../images/right/right-border-1.png'); */
     width: 497px;
     height: 252px;
 
@@ -345,7 +355,7 @@ export default {
     line-height: 16px;
 }
 
-.right-1-3-text-4{
+.right-1-3-text-4 {
     color: #5db0fd;
     font-family: "Microsoft YaHei";
     font-size: 12px;

@@ -181,7 +181,7 @@
   }
   .centerAll{
     width: 868px;
-    height: 1004px;
+    height: 1041px;
     position: absolute;
   }
   .rightAll{
@@ -207,7 +207,7 @@
   }
   .left3-class{
     width: 496px;
-    height: 201px;
+    height: 238px;
     background: url("../images/border/left3.png") no-repeat;
     background-size: 100% 100%;
     margin-bottom: 10px;
@@ -237,7 +237,7 @@
   }
   .right3-class{
     width: 496px;
-    height: 201px;
+    height: 238px;
     background: url("../images/border/right3.png") no-repeat;
     background-size: 100% 100%;
     margin-bottom: 10px;

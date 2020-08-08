@@ -1,16 +1,30 @@
 <template>
   <div class="center-bottom-class">
     <div class="clear">
-      <div class="l center-top-3"></div>
-      <div class="l center-top-4"></div>
+      <div class="l center-top-3">
+        <center3></center3>
+      </div>
+      <div class="l center-top-4">
+        <center4></center4>
+      </div>
     </div>
-    <div class="center-top-5"></div>
+    <div class="center-top-5">
+      <center5></center5>
+    </div>
   </div>
 </template>
 
 <script>
+  import center3 from './center3'
+  import center4 from './center4'
+  import center5 from './center5'
   export default {
-    name: "center1"
+    name: "center1",
+    components:{
+      center3,
+      center4,
+      center5,
+    }
   }
 </script>
 

@@ -34,10 +34,34 @@
         name: "left4",
       data(){
           return {
-            left4List:[ ]
+            left4List:[{
+              "type":"yellow",
+              "warningName":"橙色警告",
+              "condition":"周边管线水平位移",
+              "num":"0.3米"
+            },
+              {
+                "type":"blue",
+                "warningName":"蓝色警告",
+                "condition":"建筑物倾斜",
+                "num":"13.2度"
+              },
+              {
+                "type":"red",
+                "warningName":"红色警告",
+                "condition":"立柱内力",
+                "num":"235.2kg"
+              },
+              {
+                "type":"blue",
+                "warningName":"蓝色警告",
+                "condition":"建筑物倾斜wq",
+                "num":"13.2度"
+              } ]
           }
       },
       created(){
+        this.play()
           debugger
         axios.get("../json/left-4.json").then((res)=>{
           console.log('了伐t',res)

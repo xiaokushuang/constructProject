@@ -92,8 +92,8 @@ export default {
         }
     },
     mounted() {
-        this.currentProData = this.prosData[0],
-            this.changeData(this.prosData);
+        this.currentProData = this.prosData[0];
+        this.changeData(this.prosData);
         this.$nextTick(function () {
             this.drawLine();
         })
@@ -169,7 +169,7 @@ export default {
                 }
                 this.currentProData = data[count]
                 count++;
-            }, 1000);
+            }, 3000);
         }
     }
 }

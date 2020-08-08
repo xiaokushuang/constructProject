@@ -26,7 +26,7 @@
         <div class="l right-2-2">
             <div id="myChart-right-2" :style="{width: '188px', height: '170px'}"></div>
         </div>
-        <div class="l right-2-3">
+        <div class="l right-2-3" v-if="currentProData">
             <div class="right-2-3-block-1">
                 <div class="l right-2-3-icon-1"></div>
                 <div class="l right-2-3-block-4">
@@ -68,7 +68,7 @@ export default {
                     data: [18203, 23489, 29034, 104970, 131744, 630230]
                 },
                 {
-                    name: '2012年',
+                    name: '不合格',
                     type: 'bar',
                     data: [19325, 23438, 31000, 121594, 134141, 681807]
                 }
@@ -105,8 +105,11 @@ export default {
             currentProData: [],
         }
     },
+    created(){
+        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
+    },
     mounted() {
-        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]],
+        
         this.changeData(this.proData);
         this.$nextTick(function () {
             this.drawLine();
@@ -156,6 +159,9 @@ export default {
                     axisLabel: {
                         color: '#fff',
                     },
+                    splitLine:{
+                        show:false,
+                    }
                 }],
                 grid: {
                     y: 10,
@@ -295,7 +301,7 @@ export default {
                     data1, data2, data3
                 ]
                 count++;
-            }, 1000);
+            }, 3000);
         }
     }
 }

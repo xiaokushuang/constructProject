@@ -132,7 +132,7 @@ export default {
         .right1Class {
             width: 489px;
             height: 280px;
-            margin-bottom: 20px;
+            margin-bottom: 23px;
             background: url("./images/right/right-border-1.png") 0 0 no-repeat;
         }
 

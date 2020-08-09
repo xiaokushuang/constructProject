@@ -34,10 +34,10 @@
       })
     },*/
     mounted(){
-      this.drawLine();
+      this.drawLine(this.pieDataY);
     },
     methods: {
-      drawLine() {
+      drawLine(data) {
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
         // 绘制图表
@@ -81,7 +81,7 @@
                 },
                 //自定义颜色数组
                 color:['#F1EF64','#FB9A55','#EE3E3E','#6BD98D','#78D7ED'],
-                data:this.pieDataY
+                data:data
               }
             ]
           }

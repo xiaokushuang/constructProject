@@ -51,7 +51,6 @@
       },
       methods:{
         changePeople(val){
-          debugger;
           this.current = val
           if(val==0){
             this.pieDataY = [
@@ -74,8 +73,8 @@
             console.log('this.pieDataY1',this.pieDataY)
           }
 
-          this.$forceUpdate()
-          this.$refs.left2EchartRef.drawLine()
+          // this.$forceUpdate()
+          this.$refs.left2EchartRef.drawLine(this.pieDataY)
         }
       }
     }

@@ -156,7 +156,8 @@ export default {
 
     .title {
         position: relative;
-
+        top: 5px;
+        left: 5px;
         width: 209px;
         height: 40px;
         background: url('./images/right/right-icon-2.png') 100% 100% no-repeat
@@ -166,7 +167,7 @@ export default {
     .center-2-2 {
         display: inline-block;
         background: url('./images/center/center-border-2.png') 100% 100% no-repeat;
-        width: calc(50% - 7px);
+        width: calc(50% - 10px);
         height: 200px;
         margin-top: 20px;
         background-size: 100% 100%;
@@ -174,12 +175,12 @@ export default {
 
     .center-2-1 {
         position: relative;
-        right: 4px;
+        left: 4px;
     }
 
     .center-2-2 {
         position: relative;
-        left: 4px;
+        left: 18px;
     }
 }
 </style>

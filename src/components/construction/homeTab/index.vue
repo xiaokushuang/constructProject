@@ -24,7 +24,13 @@
 
             <div class="bg">
                 <div class="center2Class">
-                    <center2></center2>
+                    <div class="title"></div>
+                    <div class="l center-2-1">
+                        <center-2-1></center-2-1>
+                    </div>
+                    <div class="l center-2-2">
+                        <center-2-2></center-2-2>
+                    </div>
                 </div>
             </div>
 
@@ -57,7 +63,8 @@
 import left1 from './left1'
 import left2 from './left2'
 import center1 from './center1'
-import center2 from './center2'
+import center21 from './center21'
+import center22 from './center22'
 import right1 from './right1'
 import right2 from './right2'
 import right3 from './right3'
@@ -66,7 +73,8 @@ export default {
         left1,
         left2,
         center1,
-        center2,
+        center21,
+        center22,
         right1,
         right2,
         right3
@@ -110,6 +118,7 @@ export default {
         }
 
         .center2Class {
+            position: relative;
             width: 816px;
             height: 280px;
             padding: 10px;
@@ -143,6 +152,34 @@ export default {
 
     .bg {
         background-color: rgba(11, 8, 40, 0.7);
+    }
+
+    .title {
+        position: relative;
+
+        width: 209px;
+        height: 40px;
+        background: url('./images/right/right-icon-2.png') 100% 100% no-repeat
+    }
+
+    .center-2-1,
+    .center-2-2 {
+        display: inline-block;
+        background: url('./images/center/center-border-2.png') 100% 100% no-repeat;
+        width: calc(50% - 7px);
+        height: 200px;
+        margin-top: 20px;
+        background-size: 100% 100%;
+    }
+
+    .center-2-1 {
+        position: relative;
+        right: 4px;
+    }
+
+    .center-2-2 {
+        position: relative;
+        left: 4px;
     }
 }
 </style>

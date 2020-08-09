@@ -85,6 +85,7 @@ export default {
         .left1Class {
             width: 489px;
             height: 583px;
+            padding: 10px;
             margin-bottom: 20px;
             background: url("./images/left/left-border-1.png") 0 0 no-repeat;
         }
@@ -92,6 +93,7 @@ export default {
         .left2Class {
             width: 489px;
             height: 280px;
+            padding: 10px;
             background: url("./images/left/left-border-2.png") 0 0 no-repeat;
         }
     }
@@ -110,6 +112,7 @@ export default {
         .center2Class {
             width: 816px;
             height: 280px;
+            padding: 10px;
             background: url("./images/center/center-border-1.png") 0 0 no-repeat;
         }
     }
@@ -120,6 +123,7 @@ export default {
         .right1Class {
             width: 489px;
             height: 280px;
+            padding: 10px;
             margin-bottom: 20px;
             background: url("./images/right/right-border-1.png") 0 0 no-repeat;
         }
@@ -127,6 +131,7 @@ export default {
         .right2Class {
             width: 489px;
             height: 280px;
+            padding: 10px;
             margin-bottom: 20px;
             background: url("./images/right/right-border-2.png") 0 0 no-repeat;
         }
@@ -134,6 +139,7 @@ export default {
         .right3Class {
             width: 489px;
             height: 280px;
+            padding: 10px;
             background: url("./images/right/right-border-3.png") 0 0 no-repeat;
         }
     }

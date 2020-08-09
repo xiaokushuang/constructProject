@@ -1,0 +1,57 @@
+{
+    "success": true,
+    "proData": [
+        {
+            "name": "项目一",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级一次"
+        },
+        {
+            "name": "项目二",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级二次"
+        },
+        {
+            "name": "项目三",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级三次"
+        },
+        {
+            "name": "项目四",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级四次"
+        },
+        {
+            "name": "项目五",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级五次"
+        },
+        {
+            "name": "项目六",
+            "warnType": "现场安全管理-临时用电",
+            "upgradeNum": "升级六次"
+        }
+    ],
+    "num1": "6",
+    "num2": "8",
+    "num3": "15",
+    "xData": [
+        "已升级",
+        "已整改",
+        "待整改"
+    ],
+    "yData": [
+        {
+            "value": 335,
+            "name": "已升级"
+        },
+        {
+            "value": 335,
+            "name": "已整改"
+        },
+        {
+            "value": 335,
+            "name": "待整改"
+        }
+    ]
+}

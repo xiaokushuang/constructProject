@@ -13,19 +13,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'center1',
     data() {
         return {
-            xData: ['完成工单', '超时工单', '在途工单', '异常工单'],
-            yData: [8, 10, 13, 4],
+            xData: [],
+            yData: [],
         }
+    },
+    created() {
+        axios.get("../../../static/homeJson/center-2.json").then((res) => {
+            if (res.data.success) {
+                this.xData = res.data.xData;
+                this.yData = res.data.yData;
+                this.$nextTick(function () {
+                    this.drawLine();
+                })
+            }
+        })
     },
     mounted() {
 
-        this.$nextTick(function () {
-            this.drawLine();
-        })
     },
     methods: {
         drawLine() {
@@ -37,7 +46,7 @@ export default {
             }
             var top10xData = charts.xData
             var top10yData = charts.yData
-            var color = ['rgba(102,207,138','rgba(212,133,64','rgba(23,96,242', 'rgba(221,73,85' ]
+            var color = ['rgba(102,207,138', 'rgba(212,133,64', 'rgba(23,96,242', 'rgba(221,73,85']
 
             let lineY = []
             for (var i = 0; i < charts.xData.length; i++) {

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="showFlag">
     <div class="right-2">
         <div class="title-1">项目质量</div>
         <div class="l right-2-1">
@@ -57,64 +57,40 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "right2",
     data() {
         return {
-            num1:'6',
-            num2:'15',
-            xData: ['季度一', '季度二', '季度三', '季度四'],
-            yData: [{
-                    name: '合格',
-                    type: 'bar',
-                    data: [18203, 23489, 29034, 104970, 131744, 630230]
-                },
-                {
-                    name: '不合格',
-                    type: 'bar',
-                    data: [19325, 23438, 31000, 121594, 134141, 681807]
-                }
-            ],
-            proData: [{
-                    name: '项目一',
-                    value: '合格'
-                },
-                {
-                    name: '项目二',
-                    value: '不合格'
-                },
-                {
-                    name: '项目三',
-                    value: '合格'
-                },
-                {
-                    name: '项目四',
-                    value: '合格'
-                },
-                {
-                    name: '项目五',
-                    value: '不合格'
-                },
-                {
-                    name: '项目六',
-                    value: '合格'
-                },
-                {
-                    name: '项目七',
-                    value: '不合格'
-                }
-            ],
+            num1: '',
+            num2: '',
+            xData: [],
+            yData: [],
+            proData: [],
             currentProData: [],
+            showFlag:false,
         }
     },
-    created(){
-        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
+    created() {
+        axios.get("../../../static/homeJson/right-2.json").then((res) => {
+            if (res.data.success) {
+                this.num1 = res.data.num1;
+                this.num2 = res.data.num2;
+                this.proData = res.data.proData;
+                this.xData = res.data.xData;
+                this.yData = res.data.yData;
+                this.showFlag = true;
+
+                this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
+                this.changeData(this.proData);
+                this.$nextTick(function () {
+                    this.drawLine();
+                })
+            }
+        })
     },
     mounted() {
-        this.changeData(this.proData);
-        this.$nextTick(function () {
-            this.drawLine();
-        })
+
     },
     methods: {
         drawLine() {
@@ -160,8 +136,8 @@ export default {
                     axisLabel: {
                         color: '#fff',
                     },
-                    splitLine:{
-                        show:false,
+                    splitLine: {
+                        show: false,
                     }
                 }],
                 grid: {
@@ -171,7 +147,7 @@ export default {
                 series: [{
                         name: '合格',
                         type: 'bar',
-                        data: [10, 20, 30, 40],
+                        data: this.yData[0],
                         type: 'bar',
                         barWidth: '20%',
                         itemStyle: {
@@ -225,7 +201,7 @@ export default {
                     {
                         name: '不合格',
                         type: 'bar',
-                        data: [10, 20, 30, 40],
+                        data: this.yData[1],
                         type: 'bar',
                         barWidth: '20%',
                         itemStyle: {

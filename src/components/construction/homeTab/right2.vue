@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="showFlag">
     <div class="right-2-block-1">
         <div class="right-2-title-1"></div>
     </div>
@@ -29,39 +29,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'right2',
     data() {
         return {
-            proDataTitle: ['设备', '数量', '在线', '离线'],
-            proData: [{
-                name: '闸机',
-                num: '2',
-                online: '2',
-                offline: '4'
-            }, {
-                name: '摄像机',
-                num: '4',
-                online: '7',
-                offline: '4'
-            }, {
-                name: '吊塔',
-                num: '1',
-                online: '3',
-                offline: '4'
-            }, {
-                name: '环境',
-                num: '9',
-                online: '3',
-                offline: '4'
-            }, {
-                name: '升降机',
-                num: '2',
-                online: '2',
-                offline: '4'
-            }, ]
+            proDataTitle: [],
+            proData: [],
+            showFlag: false,
         }
-    }
+    },
+    created() {
+        axios.get("../../../static/homeTabJson/right-2.json").then((res) => {
+            if (res.data.success) {
+                this.proDataTitle = res.data.proDataTitle;
+                this.proData = res.data.proData;
+                this.showFlag = true;
+            }
+        })
+    },
 }
 </script>
 

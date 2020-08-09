@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="showFlag">
     <div class="right-3-block-1">
         <div class="right-3-title-1"></div>
     </div>
@@ -52,20 +52,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'right3',
     data() {
         return {
-            propData: {
-                'PM10': '24',
-                'PM2.5': '24',
-                '噪音': '24',
-                '温度': '24',
-                '北风': '24',
-                '湿度': '24',
-            }
+            propData: {},
+            showFlag:false,
         }
-    }
+    },
+    created() {
+        axios.get("../../../static/homeTabJson/right-3.json").then((res) => {
+            debugger
+            if (res.data.success) {
+                this.propData = res.data.propData;
+                this.showFlag = true;
+            }
+        })
+    },
 }
 </script>
 
@@ -158,7 +162,7 @@ export default {
 .right-3-block-3 {
     position: relative;
     bottom: 48px;
-    left: 30px;
+    left: 25px;
 }
 
 .right-3-block-4 {}
@@ -183,7 +187,7 @@ export default {
     font-weight: 400;
     line-height: 18px;
     text-align: left;
-    width: 60px;
+    width: 55px;
     position: relative;
     bottom: 2px;
 }

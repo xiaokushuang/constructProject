@@ -43,56 +43,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "right3",
     data() {
         return {
-            num1:"6",
-            num2:'15',
-            proData: [{
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽2人',
-                    name: '项目一',
-                    src:''
-                }, {
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽3人',
-                    name: '项目二',
-                     src:''
-                },
-                {
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽2人',
-                    name: '项目三',
-                     src:''
-                },
-                {
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽8人',
-                    name: '项目四',
-                     src:''
-                },
-                {
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽5人',
-                    name: '项目五',
-                     src:''
-                },
-                {
-                    time: '2020.7.16 12:30',
-                    warnType: '未戴安全帽9人',
-                    name: '项目六',
-                     src:''
-                }
-            ],
+            num1: "",
+            num2: '',
+            proData: [],
             currentProData: {},
         }
     },
+
     created() {
-        this.currentProData = this.proData[0];
+        axios.get("../../../static/homeJson/right-3.json").then((res) => {
+            if (res.data.success) {
+                this.num1 = res.data.num1;
+                this.num2 = res.data.num2;
+                this.proData = res.data.proData;
+                this.currentProData = this.proData[0];
+                this.changeData(this.proData);
+            }
+        })
+
     },
     mounted() {
-        this.changeData(this.proData);
+
     },
     methods: {
         changeData(data) {
@@ -275,7 +251,7 @@ export default {
 .right-3-2-icon-1 {
     width: 237px;
     height: 118px;
-   
+
     background-size: 100% 100%;
     margin-bottom: 5px;
 }

@@ -53,53 +53,39 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "right1",
     data() {
         return {
-            num1: '6',
-            num2: '8',
-            num3: '15',
-            proData: [{
-                    name: '项目一',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级一次"
-                },
-                {
-                    name: '项目二',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级二次"
-                },
-                {
-                    name: '项目三',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级三次"
-                },
-                {
-                    name: '项目四',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级四次"
-                },
-                {
-                    name: '项目五',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级五次"
-                },
-                {
-                    name: '项目六',
-                    warnType: '现场安全管理-临时用电',
-                    upgradeNum: "升级六次"
-                }
-            ],
+            num1: '',
+            num2: '',
+            num3: '',
+            proData: [],
             currentProData: {},
+            xData: [],
+            yData: [],
         }
     },
-    mounted() {
-        this.currentProData = this.proData[0];
-        this.changeData(this.proData);
-        this.$nextTick(function () {
-            this.drawLine();
+    created() {
+        axios.get("../../../static/homeJson/right-1.json").then((res) => {
+            if (res.data.success) {
+                this.num1 = res.data.num1;
+                this.num2 = res.data.num2;
+                this.num3 = res.data.num3;
+                this.proData = res.data.proData;
+                this.xData = res.data.xData;
+                this.yData = res.data.yData;
+                this.currentProData = this.proData[0];
+                this.changeData(this.proData);
+                this.$nextTick(function () {
+                    this.drawLine();
+                })
+            }
         })
+    },
+    mounted() {
+
     },
     methods: {
         drawLine() {
@@ -123,7 +109,7 @@ export default {
                     },
                     itemHeight: 6,
                     itemWidth: 15,
-                    data: ['已升级', '已整改', '待整改']
+                    data: this.xData
                 },
                 color: ['#8ED840', '#FB9A55', '#EE3E3E'],
                 series: [{
@@ -147,19 +133,7 @@ export default {
                     labelLine: {
                         show: false
                     },
-                    data: [{
-                            value: 335,
-                            name: '已升级'
-                        },
-                        {
-                            value: 335,
-                            name: '已整改'
-                        },
-                        {
-                            value: 335,
-                            name: '待整改'
-                        }
-                    ]
+                    data: this.yData
                 }]
             });
         },

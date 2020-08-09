@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "currentNum": "365",
+    "currentState": "已施工",
+    "minNum": "0",
+    "maxNum": "700",
+    "startTime": "2019-08-01开工",
+    "endTime": "2019-08-01竣工"
+}

@@ -1,5 +1,5 @@
 <template>
-<div style="padding-top:30px">
+<div style="padding-top:30px" v-if="showFlag">
     <div class="center-2-2-block-1">
         <span>{{currentNum}}</span>
     </div><br>
@@ -25,18 +25,33 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'center22',
     data() {
         return {
-            currentNum: '364',
-            currentState: '已施工',
-            minNum: '0',
-            maxNum: '700',
-            startTime: '2019-08-01开工',
-            endTime: '2019-08-01竣工',
+            currentNum: '',
+            currentState: '',
+            minNum: '',
+            maxNum: '',
+            startTime: '',
+            endTime: '',
+            showFlag:false,
         }
-    }
+    },
+    created() {
+        axios.get("../../../static/homeTabJson/center-2-2.json").then((res) => {
+            if (res.data.success) {
+                this.currentNum = res.data.currentNum;
+                this.currentState = res.data.currentState;
+                this.minNum = res.data.minNum;
+                this.maxNum = res.data.maxNum;
+                this.startTime = res.data.startTime;
+                this.endTime = res.data.endTime;
+                this.showFlag = true;
+            }
+        })
+    },
 }
 </script>
 
@@ -86,7 +101,7 @@ progress {
 .center-2-2-block-3 {
     position: relative;
     width: 262px;
-    padding-top:10px;
+    padding-top: 10px;
     margin: auto;
 }
 

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="showFlag">
     <div class="right-1-block-1">
         <div class="right-1-title-1"></div>
         <div class="right-1-block-2">
@@ -40,37 +40,23 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "right1",
     data() {
         return {
-            weatherData: {
-                tod: {
-                    location: '北京',
-                    situation: '良',
-                    curTemp: '16°',
-                    curWeather: '多云',
-                    tempRange: '21°/24°',
-                    wind: '2级',
-                    precipitation: '0mm',
-                    humidity: '59%',
-                    pressure: '1000hpa',
-                    time: '2分钟前更新',
-                    type: '今天',
-                },
-                tor: {
-                    type: '明天',
-                    location: '北京',
-                    situation: '优',
-                    tempRange: '21°/24°',
-                    wind: '2级',
-                    precipitation: '0mm',
-                    humidity: '59%',
-                    pressure: '1000hpa',
-                }
-            }
+            weatherData: {},
+            showFlag:false,
         }
-    }
+    },
+    created() {
+        axios.get("../../../static/homeTabJson/right-1.json").then((res) => {
+            if (res.data.success) {
+                this.weatherData = res.data.weatherData;
+                this.showFlag = true;
+            }
+        })
+    },
 }
 </script>
 
@@ -122,7 +108,7 @@ export default {
 
 .right-1-block-3 {
     text-align: left;
-    padding-top:10px;
+    padding-top: 10px;
 }
 
 .right-1-icon-1 {
@@ -196,7 +182,7 @@ export default {
 
 .right-1-block-4 {
     text-align: left;
-    padding-top:10px;
+    padding-top: 10px;
 }
 
 .right-1-text-6 {
@@ -255,14 +241,14 @@ export default {
 }
 
 .right-1-text-13,
-.right-1-text-16{
-    padding-left:20px;
+.right-1-text-16 {
+    padding-left: 20px;
 }
 
 .right-1-icon-2,
 .right-1-icon-3 {
     display: inline-block;
-    padding-left:25px;
+    padding-left: 25px;
 }
 
 .right-1-icon-2 {

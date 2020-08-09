@@ -1,0 +1,28 @@
+{
+    "success": true,
+    "weatherData": {
+        "tod": {
+            "location": "北京",
+            "situation": "良",
+            "curTemp": "16°",
+            "curWeather": "多云",
+            "tempRange": "21°/24°",
+            "wind": "2级",
+            "precipitation": "0mm",
+            "humidity": "59%",
+            "pressure": "1000hpa",
+            "time": "2分钟前更新",
+            "type": "今天"
+        },
+        "tor": {
+            "type": "明天",
+            "location": "北京",
+            "situation": "优",
+            "tempRange": "21°/24°",
+            "wind": "2级",
+            "precipitation": "0mm",
+            "humidity": "59%",
+            "pressure": "1000hpa"
+        }
+    }
+}

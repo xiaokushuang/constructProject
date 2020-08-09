@@ -1,0 +1,41 @@
+{
+    "success": true,
+    "proDataTitle": [
+        "设备",
+        "数量",
+        "在线",
+        "离线"
+    ],
+    "proData": [
+        {
+            "name": "闸机",
+            "num": "21",
+            "online": "2",
+            "offline": "4"
+        },
+        {
+            "name": "摄像机",
+            "num": "4",
+            "online": "7",
+            "offline": "4"
+        },
+        {
+            "name": "吊塔",
+            "num": "1",
+            "online": "3",
+            "offline": "4"
+        },
+        {
+            "name": "环境",
+            "num": "9",
+            "online": "3",
+            "offline": "4"
+        },
+        {
+            "name": "升降机",
+            "num": "2",
+            "online": "2",
+            "offline": "4"
+        }
+    ]
+}

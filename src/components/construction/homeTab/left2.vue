@@ -23,10 +23,9 @@
 
 <script>
   import left2Echart from './left2-echart'
-  // import peiEchart from './left2-echart'
     export default {
     components:{
-      left2Echart
+      left2Echart,
     },
       data(){
         return {

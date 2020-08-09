@@ -1,26 +1,28 @@
 <template>
-    <div class="left2Class">
-      <div id="myChart" :style="{width: '400px', height: '200px'}"></div>
-    </div>
+  <div class="left2Class">
+    <div id="myChart" :style="{width: '300px', height: '100px'}"></div>
+  </div>
 </template>
 
 <script>
   import axios from 'axios';
   export default {
-        name: "left2",
-      data(){
-          return {
-            pieDataY: [
-              {"value": 30, "name": "房屋建筑工程"},
-              {"value": 36, "name": "市政公路工程"},
-              {"value": 21, "name": "机电安装工程"},
-              {"value": 5, "name": "公共建筑"},
-              {"value": 8, "name": "化工石油工程"}
-            ],
-            pieDataX:["房屋建筑工程", "市政公路工程", "机电安装工程", "公共建筑", "化工石油工程"]
+    name: "left2",
+    data(){
+      return {
+        pieDataY: [],
+        pieDataX:[]
+       /* pieDataY: ["房屋建筑工程", "市政公路工程", "机电安装工程", "公共建筑", "化工石油工程"],
+        pieDataX:[
+          {value: 30, name: "房屋建筑工程"},
+          {value: 36, name: "市政公路工程"},
+          {value: 21, name: "机电安装工程"},
+          {value: 5, name: "公共建筑"},
+          {value: 8, name: "化工石油工程"}
+        ]*/
       }
-      },
-    /*created(){
+    },
+    created(){
       axios.get("../../../static/json/home-left-2.json").then((res)=>{
         if(res.data.success){
           this.pieDataY = res.data.pieDataY
@@ -28,55 +30,30 @@
           this.drawLine();
         }
       })
-    },*/
-      mounted(){
-      },
-      methods: {
-        drawLine() {
-          // 基于准备好的dom，初始化echarts实例
-          let myChart = this.$echarts.init(document.getElementById('myChart'))
-          // 绘制图表
-          myChart.setOption({
-            title:{
-              x:'center'
+    },
+    mounted(){
+    },
+    methods: {
+      drawLine() {
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption(
+          {
+            title: {
+              text: '',
+              subtext: '',
+              left: 'center'
             },
             tooltip: {
               trigger: 'item',
-              formatter: '{c}%'
+              formatter: '{a} <br/>{b} : {c} ({d}%)'
             },
-            graphic:{
-              elements: [
-                {
-                  type: 'image',
-                  style: {
-                    // image: "../assets/pie-center.png",
-                    image: "http://119.3.213.166/images/spot.png",
-                    width: 80,
-                    height: 80
-                  },
-                  left: '100',
-                  top: 'center'
-                },
-                ]
-            },
-            // backgroundColor:'#111c3b',
-            itemStyle:{
-              borderWidth:5, //设置border的宽度有多大
-              borderColor:'#111c3b',
-              normal:{
-                label:{
-                  show:true,
-                  position:'inner'
-                }
-              }
-
-            },
-            grid:{
-              top:'25%',//距上边距
-              left:'25%',//距离左边距
-              right:'25%',//距离右边距
-              bottom:'25%',//距离下边距
-            },
+        /*    legend: {
+              left: 'center',
+              top: 'bottom',
+              data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8']
+            },*/
             legend: {
               icon: "circle",   //  字段控制形状  类型包括 circle，rect,line，roundRect，triangle，diamond，pin，arrow，none
               itemWidth: 10,  // 设置宽度
@@ -90,47 +67,49 @@
                 color: '#fff',
                 fontSize: 12
               },
-              data: this.pieDataX
+              data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8']
+            },
+            toolbox: {
+              show: true,
+              feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {
+                  show: true,
+                  type: ['pie', 'funnel']
+                },
+                restore: {show: true},
+                saveAsImage: {show: true}
+              }
             },
             series: [
               {
-                name: '',
+                name: '面积模式',
                 type: 'pie',
-                center: ['35%', '50%'], //图的位置，距离左跟上的位置
-                radius: ['50%', '63%'],
-                avoidLabelOverlap: false,
-                /*label: {
-                  // show: false,
-                  position: 'inside'
-                },*/
-                label: {
-                  normal: {
-                    formatter: '{d}%  ',
-                  }
-                },
-                emphasis: {
-                  label: {
-                    // show: true,
-                    // fontSize: '30',
-                    // fontWeight: 'bold'
-                  }
-                },
-                labelLine: {
-                  show: false
-                },
-                //自定义颜色数组
-                color:['#F1EF64','#FB9A55','#EE3E3E','#6BD98D','#78D7ED'],
-                data:this.pieDataY
+                radius: [30, 110],
+                center: ['75%', '50%'],
+                roseType: 'area',
+                data: [
+                  {value: 10, name: 'rose1'},
+                  {value: 5, name: 'rose2'},
+                  {value: 15, name: 'rose3'},
+                  {value: 25, name: 'rose4'},
+                  {value: 20, name: 'rose5'},
+                  {value: 35, name: 'rose6'},
+                  {value: 30, name: 'rose7'},
+                  {value: 40, name: 'rose8'}
+                ]
               }
             ]
-          });
-        }
+          }
+        );
       }
     }
+  }
 </script>
 
 <style scoped>
-.left2Class{
-  padding-left: 12px;
-}
+  .left2Class{
+    padding-left: 12px;
+  }
 </style>

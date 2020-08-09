@@ -84,8 +84,8 @@ export default {
 
 <style lang="scss" scoped>
 .homeTabClass {
-    padding: 0px 25px;
-
+    /*padding: 0px 25px;*/
+    padding-left: 42px;
     .leftAllClass {
         width: 489px;
         margin-right: 10px;
@@ -93,7 +93,7 @@ export default {
         .left1Class {
             width: 489px;
             height: 583px;
-            padding: 10px;
+            padding: 20px;
             margin-bottom: 20px;
             background: url("./images/left/left-border-1.png") 0 0 no-repeat;
         }
@@ -101,7 +101,7 @@ export default {
         .left2Class {
             width: 489px;
             height: 280px;
-            padding: 10px;
+            padding: 20px;
             background: url("./images/left/left-border-2.png") 0 0 no-repeat;
         }
     }

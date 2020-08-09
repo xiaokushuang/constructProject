@@ -109,9 +109,6 @@
                     // fontWeight: 'bold'
                   }
                 },
-                labelLine: {
-                  show: false
-                },
                 //自定义颜色数组
                 color:['#F1EF64','#FB9A55','#EE3E3E','#6BD98D','#78D7ED'],
                 data:this.pieDataY

@@ -88,11 +88,11 @@
 .left-1-class {
   .border-title{
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
   .object{
     .objectItem{
-        width: 136px;
+        width: 134px;
       margin-right: 15px;
       .objectItem-1{
         width: 136px;
@@ -106,14 +106,16 @@
       .objectItem-2{
         font-size: 42px;
         color:#17C7FB;
-        margin-top: 5px;
+        margin-top: 10px;
       }
       .objectItem-3{
         text-align: center;
+        font-size: 14px;
       }
     }
   }
   .objectList{
+    font-size:14px;
     margin-top: 30px;
     padding: 0 10px;
     .objectListItem{

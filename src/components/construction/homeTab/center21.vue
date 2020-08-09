@@ -1,25 +1,26 @@
 <template>
 <div style="padding-top:30px">
     <div class="center-2-1-block-1">
-        <span>{{currentNum}}</span>
+        <span>在建</span>
     </div><br>
     <div class="center-2-1-block-2">
-        <span>{{currentState}}</span>
+        <span>项目状态</span>
     </div>
 
-    <div class="center-2-1-block-3">
-        <span class="center-2-1-text-1">
-            {{minNum}}
-        </span>
-        <progress :value="currentNum" :max="maxNum"></progress>
-        <span class="center-2-1-text-2">
-            {{maxNum}}
-        </span>
-    </div>
+    <div class="lineClass">
+      <div class="lineBorder"></div>
+      <div class="clear" style="position: relative;top: -12px;">
+        <div class="l" v-for="data in lineList" style="width: 33%;text-align: center;">
+          <div style="width: 15px;height: 15px;margin: auto;" v-if="data.type=='1'">
+            <div  class="highLightPoint"></div>
+          </div>
+          <div v-else style="width: 15px;height: 15px;margin: auto;">
+            <div class="normalPoint"></div>
+          </div>
+          <div style="font-size: 12px;line-height: 28px">{{data.name}}</div>
+        </div>
+      </div>
 
-    <div class="center-2-1-block-4">
-        <span class="center-2-1-text-3">{{startTime}}</span>
-        <span class="center-2-1-text-4">{{endTime}}</span>
     </div>
 </div>
 </template>
@@ -29,18 +30,26 @@ export default {
     name: 'center22',
     data() {
         return {
-            currentNum: '364',
-            currentState: '已施工',
-            minNum: '0',
-            maxNum: '700',
-            startTime: '2019-08-01开工',
-            endTime: '2019-08-01竣工',
+          lineList:[
+            {
+              type:'1',
+              name:'在建',
+            },
+            {
+              type:'0',
+              name:'竣工',
+            },
+            {
+              type:'0',
+              name:'交工',
+            }
+          ],
         }
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 progress::-webkit-progress-bar {
     background-color: #17265a;
     border-radius: 0.2rem;
@@ -59,7 +68,6 @@ progress {
 }
 
 .center-2-1-block-1 {
-    width: 57px;
     height: 44px;
     color: #cef4ff;
     font-family: Impact;
@@ -72,60 +80,44 @@ progress {
 }
 
 .center-2-1-block-2 {
-    width: 42px;
     height: 18px;
     color: #ffffff;
     font-family: "PingFangSC-Regular";
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    text-align: center;
+    /*text-align: center;*/
     display: inline-block;
 }
 
-.center-2-1-block-3 {
+.lineClass {
     position: relative;
-    width: 262px;
-    padding-top:10px;
+    width: 358px;
+    padding-top:32px;
     margin: auto;
-}
-
-.center-2-1-block-4 {
-    position: relative;
-    width: 262px;
+  .highLightPoint{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
     margin: auto;
-    text-align: left;
-}
-
-.center-2-1-text-1 {
+    background: #18DBFD;
+  }
+  .normalPoint{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin: auto;
+    background: #979797;
     position: relative;
-    right: 49%;
-}
-
-.center-2-1-text-2 {
+    top: 3px;
+  }
+  .lineBorder{
+    width: 253px;
+    height: 9px;
+    background: #17265A;
+    border-radius: 5px;
     position: relative;
-    bottom: 35px;
-    left: 45%;
-}
-
-.center-2-1-text-3 {
-    display: inline-block;
-    color: #ffffff;
-    font-family: "PingFangSC-Regular";
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 15px;
-}
-
-.center-2-1-text-4 {
-    display: inline-block;
-    color: #ffffff;
-    font-family: "PingFangSC-Regular";
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 15px;
-    position: absolute;
-    right: 0px;
-    top: 2px;
+    left: 48px;
+  }
 }
 </style>

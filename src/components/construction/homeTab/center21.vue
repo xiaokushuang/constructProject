@@ -11,9 +11,11 @@
       <div class="lineBorder"></div>
       <div class="clear" style="position: relative;top: -12px;">
         <div class="l" v-for="data in lineList" style="width: 33%;text-align: center;">
-          <div style="width: 15px;height: 15px;margin: auto;" v-if="data.type=='1'">
+          <!--type值为1，代表当前高亮节点-->
+          <div v-if="data.type=='1'" style="width: 15px;height: 15px;margin: auto;">
             <div  class="highLightPoint"></div>
           </div>
+          <!--type值为0，代表普通节点-->
           <div v-else style="width: 15px;height: 15px;margin: auto;">
             <div class="normalPoint"></div>
           </div>
@@ -26,26 +28,21 @@
 </template>
 
 <script>
-export default {
+  import axios from 'axios'
+  export default {
     name: 'center22',
     data() {
         return {
-          lineList:[
-            {
-              type:'1',
-              name:'在建',
-            },
-            {
-              type:'0',
-              name:'竣工',
-            },
-            {
-              type:'0',
-              name:'交工',
-            }
-          ],
+          lineList:[],
         }
-    }
+    },
+    created() {
+      axios.get("../../../static/homeTabJson/center-2-1.json").then((res) => {
+        if (res.data.success) {
+          this.lineList = res.data.lineList;
+        }
+      })
+    },
 }
 </script>
 

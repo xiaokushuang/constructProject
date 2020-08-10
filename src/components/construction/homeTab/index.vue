@@ -160,7 +160,7 @@ export default {
         left: 5px;
         width: 209px;
         height: 40px;
-        background: url('./images/right/right-icon-2.png') 100% 100% no-repeat
+        background: url('./images/center/center-icon-1.png') 100% 100% no-repeat
     }
 
     .center-2-1,

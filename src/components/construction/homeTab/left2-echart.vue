@@ -5,39 +5,18 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     name: "left2",
     props:[
-      "pieDataY",
-      "pieDataX"
     ],
     data(){
       return {
-       /* pieDataY:  [
-          {value: 12.3, name: '北京总建'},
-          {value: 16.4, name: '通州分部'},
-          {value: 13.4, name: '西安总理'},
-          {value: 25.7, name: '长沙总理'},
-        ],
-        pieDataX:['北京总建', '通州分部', '西安总理', '长沙总理',]*/
       }
     },
- /*   created(){
-      this.drawLine();
-      axios.get("../../../static/json/home-left-2.json").then((res)=>{
-        if(res.data.success){
-          this.pieDataY = res.data.pieDataY
-          this.pieDataX = res.data.pieDataX
-          this.drawLine();
-        }
-      })
-    },*/
     mounted(){
-      this.drawLine(this.pieDataY);
     },
     methods: {
-      drawLine(data) {
+      drawLine(dataX,dataY) {
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
         // 绘制图表
@@ -65,7 +44,7 @@
                 color: '#fff',
                 fontSize: 12
               },
-              data: this.pieDataX
+              data: dataX
             },
             series: [
               {
@@ -81,7 +60,7 @@
                 },
                 //自定义颜色数组
                 color:['#F1EF64','#FB9A55','#EE3E3E','#6BD98D','#78D7ED'],
-                data:data
+                data:dataY
               }
             ]
           }

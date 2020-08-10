@@ -30,7 +30,7 @@
         <div class="contentClass">
           <div class="clear">
             <!--左侧内容-->
-            <div class="l leftAll">
+            <div class="l leftAll bgColor">
               <transition appear name="moveL">
                   <div class="left1-class">
                 <left1></left1>
@@ -62,7 +62,7 @@
               </transition>
             </div>
             <!--右侧内容-->
-            <div class="l rightAll">
+            <div class="l rightAll bgColor">
               <transition appear name="moveR">
                 <div class="right1-class">
                   <right1></right1>
@@ -172,6 +172,9 @@
   }
   .moveB-leave-to{
     transform: translateY(100%);
+  }
+  .bgColor{
+    background-color: rgba(11,8,40,0.7);
   }
   .indexClass{
     background: url("../images/border/bg.png") 0 0 no-repeat;

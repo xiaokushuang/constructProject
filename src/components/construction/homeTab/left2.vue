@@ -8,7 +8,7 @@
       <div class="peopleNumBtn clear">
         <div v-for="(data,index) in peopleList"  @click="changePeople(index)" style="margin-right: 13px;" class="l clear" :class="index==current?'hightLightLabel':'normalLabel'" >
           <div class="l" style="margin-right: 13px;">
-            <div style="font-size: 24px;text-align: right">{{data.num}}{{index}}</div>
+            <div style="font-size: 24px;text-align: right">{{data.num}}</div>
             <div style="font-size: 14px;">{{data.name}}</div>
           </div>
           <div v-if="index=='0'" class="l" style="color:#25ACFF;margin-top: 28px;">|</div>
@@ -16,12 +16,13 @@
       </div>
       <!--echart-->
       <div class="pie-echart">
-        <left2Echart ref="left2EchartRef" :pieDataX="pieDataX" :pieDataY="pieDataY"></left2Echart>
+        <left2Echart ref="left2EchartRef" :pieDataX="pieDataX"></left2Echart>
       </div>
     </div>
 </template>
 
 <script>
+  import axios from 'axios'
   import left2Echart from './left2-echart'
     export default {
     components:{
@@ -29,52 +30,39 @@
     },
       data(){
         return {
+          showPie:false,
           current:'0',
-          peopleList:[
-            {
-              num:'129',
-              name:'实时在场人数'
-            },
-            {
-              num:'137',
-              name:'今日考勤人数'
-            }
-          ],
-          pieDataY:  [
-            {value: 12.3, name: '北京总建'},
-            {value: 16.4, name: '通州分部'},
-            {value: 13.4, name: '西安总理'},
-            {value: 25.7, name: '长沙总理'},
-          ],
-          pieDataX:['北京总建', '通州分部', '西安总理', '长沙总理',]
+          peopleList:[],
+          pieDataX:[],
+          pieDataY:[],
+          pieDataY1: [],
+          pieDataY2:[],
         }
+      },
+      created() {
+        axios.get("../../../static/homeTabJson/left-2.json").then((res) => {
+          if (res.data.success) {
+            console.log('left echart ',res)
+            this.peopleList = res.data.peopleList;
+            this.pieDataY1 = res.data.pieDataY1;
+            this.pieDataY2 = res.data.pieDataY2;
+            this.pieDataX = res.data.pieDataX;
+            this.changePeople('0')
+          }
+        })
       },
       methods:{
         changePeople(val){
           this.current = val
           if(val==0){
-            this.pieDataY = [
-              {value: 12.3, name: '北京总建'},
-              {value: 16.4, name: '通州分部'},
-              {value: 13.4, name: '西安总理'},
-              {value: 25.7, name: '长沙总理'},
-            ]
-           /* this.$set(this.pieDataY[val], 'value', '1000')
-            this.$set(this.pieDataY,val,this.pieDataY[val]);*/
-            console.log('this.pieDataY0',this.pieDataY)
+            this.pieDataY = this.pieDataY1
           }
           if(val==1){
-            this.pieDataY = [
-              {value: 37.3, name: '北京总建'},
-              {value: 8.4, name: '通州分部'},
-              {value: 9.4, name: '西安总理'},
-              {value: 15.7, name: '长沙总理'},
-            ]
-            console.log('this.pieDataY1',this.pieDataY)
+            this.pieDataY = this.pieDataY2
           }
-
-          // this.$forceUpdate()
-          this.$refs.left2EchartRef.drawLine(this.pieDataY)
+          if(this.$refs.left2EchartRef){
+            this.$refs.left2EchartRef.drawLine(this.pieDataX,this.pieDataY)
+          }
         }
       }
     }

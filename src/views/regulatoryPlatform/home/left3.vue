@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="l right-1-1-block-2">
-                <span class="right-1-1-text-2">6</span>
+                <span class="right-1-1-text-2">{{num1}}</span>
                 <span class="right-1-1-text-3">发现隐患</span>
             </div>
             <div class="l right-1-1-block-3">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="l right-1-1-block-4">
-                <span class="right-1-1-text-6">15</span>
+                <span class="right-1-1-text-6">{{num2}}</span>
                 <span class="right-1-1-text-7">升级量</span>
             </div>
         </div>
@@ -56,50 +56,34 @@
 </template>
 
 <script>
-export default {
+  import axios from 'axios'
+  export default {
     name: "left3",
     data() {
         return {
-            proData: [{
-                    name: '项目一',
-                    value: '合格'
-                },
-                {
-                    name: '项目二',
-                    value: '不合格'
-                },
-                {
-                    name: '项目三',
-                    value: '合格'
-                },
-                {
-                    name: '项目四',
-                    value: '合格'
-                },
-                {
-                    name: '项目五',
-                    value: '不合格'
-                },
-                {
-                    name: '项目六',
-                    value: '合格'
-                },
-                {
-                    name: '项目七',
-                    value: '不合格'
-                }
-            ],
+          num1:'6',
+          num2:'15',
+          pieDataX:[],
+          pieDataY: [],
+            proData: [],
             currentProData: [],
         }
     },
     created() {
-        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
-    },
-    mounted() {
-        this.changeData(this.proData);
-        this.$nextTick(function () {
+      axios.get("../../../static/regulatoryPlatform/left-3.json").then((res) => {
+        if (res.data.success) {
+          this.num1 = res.data.num1
+          this.num2 = res.data.num2
+          this.proData = res.data.proData
+          this.pieDataX = res.data.pieDataX
+          this.pieDataY = res.data.pieDataY
+          this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
+          this.changeData(this.proData);
+          this.$nextTick(function () {
             this.drawLine();
-        })
+          })
+        }
+      })
     },
     methods: {
         drawLine() {
@@ -123,7 +107,7 @@ export default {
                     },
                     itemHeight: 6,
                     itemWidth: 15,
-                    data: ['蓝色预警', '橙色预警', '红色预警']
+                    data: this.pieDataX
                 },
                 color: ['#5db0fd', '#fb9a55', '#ee3e3e'],
                 series: [{
@@ -147,19 +131,7 @@ export default {
                     labelLine: {
                         show: false
                     },
-                    data: [{
-                            value: 335,
-                            name: '蓝色预警'
-                        },
-                        {
-                            value: 335,
-                            name: '橙色预警'
-                        },
-                        {
-                            value: 335,
-                            name: '红色预警'
-                        }
-                    ]
+                    data:this.pieDataY
                 }]
             });
         },

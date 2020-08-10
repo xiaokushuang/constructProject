@@ -15,7 +15,10 @@
                   <div class="clear">
                     <div class="l">
                       <div class="hj-left1-1">
-                        <img style="position:relative; top:10px;" width="48" height="48" :src="data.src" alt="">
+                        <img v-if="data.name=='PM10'" style="position:relative; top:10px;" width="48" height="48" src="../../../assets/hj-left-block1-1.png" alt="">
+                        <img v-if="data.name=='PM2.5'" style="position:relative; top:10px;" width="48" height="48" src="../../../assets/hj-left-block1-2.png" alt="">
+                        <img v-if="data.name=='温度'" style="position:relative; top:10px;" width="48" height="48" src="../../../assets/hj-left-block1-3.png" alt="">
+                        <img v-if="data.name=='湿度'" style="position:relative; top:10px;" width="48" height="48" src="../../../assets/hj-left-block1-4.png" alt="">
                       </div>
                       <div style="text-align: center">{{data.name}}</div>
                     </div>
@@ -37,7 +40,10 @@
                   <div class="clear">
                     <div class="l">
                       <div class="hj-left1-1">
-                        <img style="position:relative; top:10px" :src="data.src" alt="">
+                        <img v-if="data.name=='风向'" style="position:relative; top:20px" src="../../../assets/hj-left-block3-1.png" alt="">
+                        <img v-if="data.name=='风速'" style="position:relative; top:20px" src="../../../assets/hj-left-block3-2.png" alt="">
+                        <img v-if="data.name=='噪音'" style="position:relative; top:10px" src="../../../assets/hj-left-block3-3.png" alt="">
+                        <img v-if="data.name=='扬尘'" style="position:relative; top:20px" src="../../../assets/hj-left-block3-4.png" alt="">
                       </div>
                       <div style="text-align: center">{{data.name}}</div>
                     </div>
@@ -127,91 +133,21 @@
       },
         data(){
             return {
-              leftList1:[
-                {
-                  src:require('../../../assets/hj-left-block1-1.png'),
-                  name:'PM10',
-                  num:"24",
-                  unit:'ug/m3'
-                },
-                {
-                  src:require('../../../assets/hj-left-block1-2.png'),
-                  name:'PM2.5',
-                  num:"17",
-                  unit:'ug/m3'
-                },
-                {
-                  src:require('../../../assets/hj-left-block1-3.png'),
-                  name:'温度',
-                  num:"25",
-                  unit:'0C'
-                },
-                {
-                  src:require('../../../assets/hj-left-block1-4.png'),
-                  name:'湿度',
-                  num:"24",
-                  unit:'湿度'
-                }
-              ],
-              leftList3:[
-                {
-                  src:require('../../../assets/hj-left-block3-1.png'),
-                  name:'风向',
-                  num:"北",
-                  unit:'风'
-                },
-                {
-                  src:require('../../../assets/hj-left-block3-2.png'),
-                  name:'风速',
-                  num:"17",
-                  unit:'0m/s'
-                },
-                {
-                  src:require('../../../assets/hj-left-block3-3.png'),
-                  name:'噪音',
-                  num:"24",
-                  unit:'bd'
-                },
-                {
-                  src:require('../../../assets/hj-left-block3-4.png'),
-                  name:'扬尘',
-                  num:"17",
-                  unit:'扬尘'
-                }
-              ],
-              rightList1:[
-                {
-                  num:'14',
-                  name:'PM2.5浓度'
-                },
-                {
-                  num:'28',
-                  name:'PM10浓度'
-                },
-                {
-                  num:'0',
-                  name:'噪音'
-                }
-              ],
-              rightList2:[
-                {
-                  num:'26',
-                  name:'在线'
-                },
-                {
-                  num:'3',
-                  name:'离线'
-                },
-              ],
+              leftList1:[],
+              leftList3:[],
+              rightList1:[],
+              rightList2:[],
               rightList3:[],
             }
         },
       created(){
         axios.get("../../../static/json/hj.json").then((res)=>{
-          console.log('环境请求数据',res)
           if(res.data.success){
+            this.leftList1 = res.data.leftList1
+            this.leftList3 = res.data.leftList3
+            this.rightList1 = res.data.rightList1
+            this.rightList2 = res.data.rightList2
             this.rightList3 = res.data.rightList3
-            this.drawLine();
           }
         })
       },

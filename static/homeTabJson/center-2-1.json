@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "lineList":[
+    {
+      "type":"1",
+      "name":"在建"
+    },
+    {
+      "type":"0",
+      "name":"竣工"
+    },
+    {
+      "type":"0",
+      "name":"交工"
+    }
+  ]
+}

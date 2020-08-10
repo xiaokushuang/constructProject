@@ -1,5 +1,5 @@
 <template>
-  <div class="center-bottom-class">
+  <div class="center-bottom-class bgColor">
     <div class="clear">
       <div class="l center-top-3">
         <center3></center3>
@@ -30,6 +30,9 @@
 <style scoped>
   .center-bottom-class{
     width: 868px;
+  }
+  .bgColor{
+    background-color: rgba(11,8,40,0.7);
   }
   .center-top-3{
     width: 424px;

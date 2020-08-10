@@ -24,18 +24,10 @@
 
                 </div>
                 <div class="left-2-1-block-3 l">
-                    <span class="l left-2-1-text-5">业务节点<span class="left-2-1-text-7">{{num1}}</span></span><br>
-                    <span class="l left-2-1-text-6">关键节点<span class="left-2-1-text-7">{{num2}}</span></span>
+                    <span class="l left-2-1-text-5">业务节点<span class="left-2-1-text-7">{{num3}}</span></span><br>
+                    <span class="l left-2-1-text-6">关键节点<span class="left-2-1-text-7">{{num4}}</span></span>
                 </div>
             </div>
-
-            <!-- <div class="left-2-1-block-2">
-                <span class="left-2-1-text-3 l">近期节点</span>
-                <div class="left-2-1-text-2-circle-1"></div>
-                <span class="left-2-1-text-4"></span>
-
-                <div class="left-2-1-text-2-circle-2"></div>
-            </div> -->
         </div>
         <div class="l left-2-2">
             <div id="myChart-left-1" :style="{width: '102px', height: '160px'}"></div>
@@ -71,52 +63,37 @@
 </template>
 
 <script>
-export default {
+  import axios from 'axios'
+  export default {
     name: "left2",
     data() {
         return {
-            num1: '6',
-            num2: '8',
-            proData: [{
-                    name: '项目一',
-                    value: '关键节点延期'
-                },
-                {
-                    name: '项目二',
-                    value: '业主节点延期'
-                },
-                {
-                    name: '项目三',
-                    value: '关键节点延期'
-                },
-                {
-                    name: '项目四',
-                    value: '业主节点延期'
-                },
-                {
-                    name: '项目五',
-                    value: '业主节点延期'
-                },
-                {
-                    name: '项目六',
-                    value: '业主节点延期'
-                },
-                {
-                    name: '项目七',
-                    value: '关键节点延期'
-                }
-            ],
+            num1: '',
+            num2: '',
+            num3: '',
+            num4: '',
+            proData: [],
             currentProData: [],
+            pieDataX:[]
         }
     },
     created() {
-        this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
-    },
-    mounted() {
-        this.changeData(this.proData);
-        this.$nextTick(function () {
+      axios.get("../../../static/regulatoryPlatform/left-2.json").then((res) => {
+        if (res.data.success) {
+          this.num1 = res.data.num1
+          this.num2 = res.data.num2
+          this.num3 = res.data.num3
+          this.num4 = res.data.num4
+          this.proData = res.data.proData
+          this.pieDataX = res.data.pieDataX
+          this.pieDataY = res.data.pieDataY
+          this.currentProData = [this.proData[0], this.proData[1], this.proData[2]];
+          this.changeData(this.proData);
+          this.$nextTick(function () {
             this.drawLine();
-        })
+          })
+        }
+      })
     },
     methods: {
         drawLine() {
@@ -124,10 +101,10 @@ export default {
             let myChart = this.$echarts.init(document.getElementById('myChart-left-1'))
             // 绘制图表
             myChart.setOption({
-                // tooltip: {
-                //     trigger: 'item',
-                //     formatter: '{a} <br/>{b}: {c} ({d}%)'
-                // },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
                 legend: {
                     orient: 'horizontal',
                     left: '0%',
@@ -140,7 +117,7 @@ export default {
                     },
                     itemHeight: 6,
                     itemWidth: 15,
-                    data: ['关键节点延期', '业主节点延期']
+                    data: this.pieDataX
                 },
                 color: ['#8ED840', '#FB9A55', '#EE3E3E'],
                 series: [{
@@ -164,15 +141,7 @@ export default {
                     labelLine: {
                         show: false
                     },
-                    data: [{
-                            value: 335,
-                            name: '关键节点延期'
-                        },
-                        {
-                            value: 335,
-                            name: '业主节点延期'
-                        },
-                    ]
+                    data: this.pieDataY
                 }]
             });
         },

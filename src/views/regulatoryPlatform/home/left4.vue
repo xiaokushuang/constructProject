@@ -27,45 +27,18 @@
       </div>
     </div>
 </template>
-
 <script>
   import axios from 'axios';
     export default {
         name: "left4",
       data(){
           return {
-            left4List:[{
-              "type":"yellow",
-              "warningName":"橙色警告",
-              "condition":"周边管线水平位移",
-              "num":"0.3米"
-            },
-              {
-                "type":"blue",
-                "warningName":"蓝色警告",
-                "condition":"建筑物倾斜",
-                "num":"13.2度"
-              },
-              {
-                "type":"red",
-                "warningName":"红色警告",
-                "condition":"立柱内力",
-                "num":"235.2kg"
-              },
-              {
-                "type":"blue",
-                "warningName":"蓝色警告",
-                "condition":"建筑物倾斜wq",
-                "num":"13.2度"
-              } ]
+            left4List:[]
           }
       },
-      created(){
-        this.play()
-          debugger
-        axios.get("../json/left-4.json").then((res)=>{
-          console.log('了伐t',res)
-          if(res.data.success){
+      created() {
+        axios.get("../../../static/regulatoryPlatform/left-4.json").then((res) => {
+          if (res.data.success) {
             this.left4List = res.data.left4List
             this.play()
           }

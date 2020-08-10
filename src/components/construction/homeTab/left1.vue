@@ -25,62 +25,22 @@
 </template>
 
 <script>
-    export default {
+  import axios from 'axios'
+  export default {
       data() {
         return {
-          objectLeftList1:[
-            {
-              name:'工程层数' ,
-              num:'+20/-3',
-              unit:'层'
-            },
-            {
-              name:'工程造价' ,
-              num:'36000',
-              unit:'万元'
-            },
-            {
-              name:'工程面积' ,
-              num:'50500',
-              unit:'平方米'
-            },
-          ],
-          objectLeftList2:[
-            {
-              name:'项目类型',
-              type:'工业建筑/工业建筑/厂房'
-            },
-            {
-              name:'工程类别',
-              type:'房建'
-            },
-            {
-              name:'项目类型',
-              type:'工业建筑/工业建筑/厂房'
-            },
-            {
-              name:'设计单位',
-              type:'设计单位设计单位设计单位设计单位'
-            },
-            {
-              name:'建设单位',
-              type:'通州建总集团'
-            },
-            {
-              name:'监理单位',
-              type:'监理单位'
-            },
-            {
-              name:'勘察单位',
-              type:'勘察单位'
-            },
-            {
-              name:'施工单位',
-              type:'施工单位'
-            },
-          ],
+          objectLeftList1:[],
+          objectLeftList2:[],
         }
       },
+    created() {
+      axios.get("../../../static/homeTabJson/left-1.json").then((res) => {
+        if (res.data.success) {
+          this.objectLeftList1 = res.data.objectLeftList1;
+          this.objectLeftList2 = res.data.objectLeftList2;
+        }
+      })
+    },
     }
 </script>
 

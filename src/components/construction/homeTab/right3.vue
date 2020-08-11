@@ -63,7 +63,6 @@ export default {
     },
     created() {
         axios.get("../../../static/homeTabJson/right-3.json").then((res) => {
-            debugger
             if (res.data.success) {
                 this.propData = res.data.propData;
                 this.showFlag = true;

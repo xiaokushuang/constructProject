@@ -55,10 +55,10 @@
             <!--中间内容-->
             <div class="l centerAll">
               <transition appear name="moveT">
-                <centerTop style="position: absolute;top: 116px;left: 510px;"></centerTop>
+                <centerTop style="position: absolute;top: 130px;left: 532px;"></centerTop>
               </transition>
               <transition appear name="moveB">
-                <centerbottom style="position: absolute;bottom: 10px;left: 510px;"></centerbottom>
+                <centerbottom style="position: absolute;bottom: 10px;left: 532px;"></centerbottom>
               </transition>
             </div>
             <!--右侧内容-->
@@ -221,7 +221,6 @@
   .centerAll{
     width: 868px;
     height: 1041px;
-    position: absolute;
   }
   .rightAll{
     width: 497px;

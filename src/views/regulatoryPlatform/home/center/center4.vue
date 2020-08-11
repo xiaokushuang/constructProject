@@ -19,30 +19,21 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: "center4",
     data(){
       return {
-        center4List:[
-          {
-            num:"56",
-            name:"停工"
-          },
-          {
-            num:"149",
-            name:"完工"
-          },
-          {
-            num:"146",
-            name:"在建"
-          },
-          {
-            num:"211",
-            name:"待建"
-          },
-        ]
+        center4List:[]
       }
-    }
+    },
+    created(){
+      axios.get("../../../static/regulatoryPlatform/center-4.json").then((res)=>{
+        if(res.data.success){
+          this.center4List = res.data.center4List
+        }
+      })
+    },
   }
 </script>
 

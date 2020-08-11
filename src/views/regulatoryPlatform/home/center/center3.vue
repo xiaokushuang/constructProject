@@ -3,22 +3,43 @@
       <div class="clear">
         <div class="l center3-title">汇总信息</div>
         <div class="l">
-          <div class="allNum">376</div>
+          <div class="allNum">{{num}}</div>
           <div class="smallTitle">项目总数</div>
         </div>
         <div class="l" style="padding: 0 0 0 10px;">
-          <center3Echart></center3Echart>
+          <center3Echart ref="pieChart"></center3Echart>
         </div>
       </div>
     </div>
 </template>
 
 <script>
+  import axios from 'axios';
   import center3Echart from './center3-echart'
     export default {
         name: "center3",
+      data(){
+          return {
+            pieChartData:[],
+            num:''
+          }
+      },
       components:{
         center3Echart
+      },
+      created(){
+        axios.get("../../../static/regulatoryPlatform/center-3.json").then((res)=>{
+          if(res.data.success){
+            this.num = res.data.num
+            this.pieChartData = res.data.pieChartData
+            console.log('21212',this.$refs)
+            this.$nextTick(()=>{
+              if(this.$refs.pieChart){
+                this.$refs.pieChart.drawLine(this.pieChartData);
+              }
+            })
+          }
+        })
       },
     }
 </script>
@@ -32,6 +53,7 @@
   letter-spacing: 8px;
   margin-top: 20px;
   padding-left: 25px;
+  margin-right:50px;
 }
   .allNum{
     width: 105px;

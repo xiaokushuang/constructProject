@@ -101,10 +101,10 @@
             let myChart = this.$echarts.init(document.getElementById('myChart-left-1'))
             // 绘制图表
             myChart.setOption({
-                tooltip: {
-                    trigger: 'item',
-                    formatter: '{a} <br/>{b}: {c} ({d}%)'
-                },
+                // tooltip: {
+                //     trigger: 'item',
+                //     formatter: '{a} <br/>{b}: {c} ({d}%)'
+                // },
                 legend: {
                     orient: 'horizontal',
                     left: '0%',

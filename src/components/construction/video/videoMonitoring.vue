@@ -141,13 +141,11 @@
 </template>
 
 <script>
-import viLeft1 from './vi-left1'
 import axios from 'axios'
 import 'videojs-flash'
 export default {
     name: 'videoMonitoring',
     components: {
-        viLeft1
     },
     created() {
         axios.get("../../../static/json/videoMonitoringTableData.json").then((res) => {

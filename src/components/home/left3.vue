@@ -84,6 +84,7 @@
         }
 
         console.log(lineY)
+        debugger
 
         // 绘制图表
         myListChart.setOption(
@@ -105,7 +106,7 @@
             color: color,
             yAxis: [{
               type: 'category',
-              inverse: true,
+              // inverse: true,
               axisTick: {
                 show: false
               },

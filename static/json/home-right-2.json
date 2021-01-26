@@ -1,23 +1,15 @@
 {
   "success":true,
   "barData":[{
-    "name": "项目经理",
+    "name": "企业A",
     "value": 175.17
   },
     {
-      "name": "技术负责人",
+      "name": "企业B",
       "value": 148.35
     },
     {
-      "name": "质量员",
-      "value": 95.36
-    },
-    {
-      "name": "安全员",
-      "value": 148.35
-    },
-    {
-      "name": "施工员",
+      "name": "企业C",
       "value": 95.36
     }
   ]

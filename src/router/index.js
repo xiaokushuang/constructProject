@@ -19,9 +19,9 @@ export default new Router({
       component: Visualization
     },
     {
-      path: '/construction',
-      name: 'construction',
-      component: Construction
+      path: '/Visualization',
+      name: 'Visualization',
+      component: Visualization
     },
     {
       path: '/regulatoryPlatform',

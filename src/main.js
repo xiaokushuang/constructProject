@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 // 引入echarts
 import echarts from 'echarts'
+import china from 'echarts/map/json/china.json'
+echarts.registerMap('china', china)
 Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false

@@ -1,7 +1,7 @@
 <template>
   <div class="visualizationClass">
     <!--导航栏头部-->
-    <div class="navClass">南部新城智慧工地监管平台</div>
+    <div class="navClass">中小企业直融平台</div>
    <!--内容部分-->
     <div style="padding: 0 15px;">
       <div class="contentClass clear" style="padding-top:30px">
@@ -9,17 +9,29 @@
         <div class="left l ">
           <!--左1-->
             <div class="smallBlock">
-              <div class="titleClass">项目总框</div>
-              <left1></left1>
+              <div class="titleClass">机构库</div>
+              <div class="clear">
+                <div v-for="data in leftList1"  class="lightSmark clear l">
+                  <div class="l clear">
+                    <div class="left1-class l">
+                      <img style="position: relative;left: 28px;top: 17px;" :src="data.src" alt="">
+                    </div>
+                    <div class="l" style="margin-top: 20px;margin-left:7px;">
+                      <div style="color:#6EFF8B;font-size:34px;text-align: center">{{data.num}}</div>
+                      <div style="font-size:14px;font-weight:bold;color:#fff;" v-html="data.name">{{}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           <!--左2-->
             <div class="smallBlock">
-              <div class="titleClass">项目类型</div>
+              <div class="titleClass">分类比例</div>
               <left2></left2>
             </div>
           <!--左3-->
             <div class="smallBlock">
-              <div class="titleClass">人民教育情况</div>
+              <div class="titleClass">公司分类情况</div>
               <left3></left3>
             </div>
         </div>
@@ -27,12 +39,37 @@
         <div class="center l" style="padding: 0 10px;">
           <!--中间地图-->
           <div class="centerTop">
-            <map-self></map-self>
+            <registerMap></registerMap>
           </div>
           <!--安全检查情况-->
           <div class="centerBottom">
-            <div class="titleClass1">安全检查情况</div>
-            <center2></center2>
+            <div class="titleClass1">企业数量</div>
+            <div class="clear">
+              <div class="l">
+                <div style="margin-right: 105px;" class="centerBottom-circle">
+                  <div class="centerBottom-circle-text">
+                    220 <span style="font-size:14px"></span>
+                  </div>
+                </div>
+                <p class="centerBottom-circle-text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小巨人</p>
+              </div>
+              <div class="l">
+                <div style="margin-right: 105px;" class="centerBottom-circle-1">
+                  <div class="centerBottom-circle-text">
+                    560 <span style="font-size:14px"></span>
+                  </div>
+                </div>
+                <p class="centerBottom-circle-text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专精特新</p>
+              </div>
+              <div class="l">
+                <div class="centerBottom-circle ">
+                  <div class="centerBottom-circle-text">
+                    3104 <span style="font-size:14px"></span>
+                  </div>
+                </div>
+                <p class="centerBottom-circle-text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中小企业</p>
+              </div>
+            </div>
           </div>
         </div>
         <!--右侧部分-->
@@ -40,42 +77,48 @@
           <!--右1-->
           <div class="smallBlock1">
             <div>
-              <div class="titleClass" style="padding-left: 258px;">设备在线率</div>
-             <right1></right1>
+              <div class="titleClass" style="padding-left: 210px;">投资行业比例</div>
+              <div class="clear" style="margin-top: 30px; margin-left: 20px;">
+                <div v-for="data in rightList1" class="l right1-class">
+                  <div style="color:#fff;font-weight: bold;font-size:20px;margin-bottom:35px;">{{data.radio}}</div>
+                  <div style="margin-bottom:25px;width: 32px;height: 32px;"><img :src="data.src" alt=""></div>
+                  <div style="color:#D8D8D8;font-size:14px">{{data.name}}</div>
+                </div>
+              </div>
             </div>
           </div>
           <!--右2-->
           <div class="smallBlock1">
             <div>
-              <div class="titleClass" style="padding-left: 220px;">管理人员出勤率</div>
+              <div class="titleClass" style="padding-left: 250px;">投资企业融资</div>
               <right2></right2>
             </div>
           </div>
           <!--右3-->
           <div class="smallBlock1">
             <div>
-              <div class="titleClass" style="padding-left: 200px;">项目告警动态监控</div>
+              <div class="titleClass" style="padding-left: 250px;">IPO过会数</div>
               <div style="padding-right: 55px;">
                 <div class="clear">
                   <!--扬尘警告和噪声警告-->
-                  <div class="l">
-                    <div style="cursor: pointer;border:1px solid #2CD4FF;border-radius:5px;padding:5px 10px;padding-right: 0;">
-                      <span style="margin-right: 10px;" @click="changeType(index)" :class="current1==index?'highlight1':'normal1'" v-for="(data,index) in typeList" >{{data.name}}</span>
+                  <!-- <div class="l">
+                    <div style="border:1px solid #2CD4FF;border-radius:5px;padding:5px 7px">
+                      <span style="color:#2CD6FF">扬尘警告</span>
+                      <span style="color:#207DB9">噪声警告</span>
                     </div>
-                  </div>
+                  </div> -->
                   <!--今日&&本周-->
-                  <div style="margin-top: 20px;" class="r">
+                  <!-- <div style="margin-top: 20px;" class="r">
                     <div>
-                      <span style="font-size:12px;cursor: pointer;" :class="current2==index?'highlight1':'normal1'"  @click="changeDate(index)" v-for="(data,index) in dateList">
-                        {{data.name}}
-                        <span v-if="index==0" style="color:#2CD6FF">|</span>
-                      </span>
+                      <span style="color:#2CD6FF">今日</span>
+                      <span style="color:#2CD6FF">|</span>
+                      <span style="color:#207DB9">本周</span>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
-            <right3 ref="right3Ref"></right3>
+            <right3></right3>
           </div>
         </div>
       </div>
@@ -84,122 +127,75 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import mapSelf from './newMap'
-  import left1 from './left1'
+  import registerMap from './registerMap'
   import left2 from './left2'
   import left3 from './left3'
-  import center2 from './center2'
-  import right1 from './right1'
   import right2 from './right2'
   import right3 from './right3'
 export default {
   name: 'HelloWorld',
   components:{
     mapSelf,
-    left1,
+    registerMap,
     left2,
     left3,
-    center2,
-    right1,
     right2,
     right3
   },
   data () {
     return {
-      xData:[],
-      yData:[],
-      xData1:[],
-      yData1:[],
-      xData2:[],
-      yData2:[],
-      xData3:[],
-      yData3:[],
-      xData4:[],
-      yData5:[],
-      current1:0,
-      current2:0,
-      typeList:[
+      leftList1:[
         {
-          id:'1',
-          name:'扬尘警告'
+          src:require('../../assets/left1-1.png'),
+          num:'890',
+          name:'投资机构'
         },
         {
-          id:'2',
-          name:'噪声警告'
+          src:require('../../assets/left1-2.png'),
+          num:'360',
+          name:'&nbsp;&nbsp;&nbsp;&nbsp;LP'
+        },
+        {
+          src:require('../../assets/left1-3.png'),
+          num:'180',
+          name:'&nbsp;&nbsp;&nbsp;&nbsp;GP'
+        },
+        {
+          src:require('../../assets/left1-4.png'),
+          num:'350',
+          name:'&nbsp;&nbsp;&nbsp;&nbsp;基金'
         }
       ],
-      dateList:[
+      rightList1:[
         {
-          id:'1',
-          name:'今日'
+          radio:'19%',
+          src:require('../../assets/right1-1.png'),
+          name:'新能源'
         },
         {
-          id:'2',
-          name:'本周'
-        }
-      ]
+          radio:'5%',
+          src:require('../../assets/right1-2.png'),
+          name:'汽车'
+        },
+        {
+          radio:'21%',
+          src:require('../../assets/right1-3.png'),
+          name:'医药'
+        },
+        {
+          radio:'32%',
+          src:require('../../assets/right1-4.png'),
+          name:'电子'
+        },
+        {
+          radio:'23%',
+          src:require('../../assets/right1-5.png'),
+          name:'新工业'
+        },
+      ],
     }
-  },
-  created(){
-    axios.get("../../../static/json/home-right-3.json").then((res)=>{
-      if(res.data.success){
-        this.xData1 = res.data.xData1
-        this.yData1 = res.data.yData1
-        this.xData2 = res.data.xData2
-        this.yData2 = res.data.yData2
-        this.xData3 = res.data.xData3
-        this.yData3 = res.data.yData3
-        this.xData4 = res.data.xData4
-        this.yData4 = res.data.yData4
-        this.xData = this.xData1
-        this.yData = this.yData1
-        this.$refs.right3Ref.drawLine(this.xData,this.yData);
-      }
-    })
-  },
-  methods:{
-    changeType(index){
-      this.current1 = index
-      if(this.current1==0&&this.current2==0){
-        this.xData = this.xData1
-        this.yData = this.yData1
-      }
-      if(this.current1==0&&this.current2==1){
-        this.xData = this.xData2
-        this.yData = this.yData2
-      }
-      if(this.current1==1&&this.current2==0){
-        this.xData = this.xData3
-        this.yData = this.yData3
-      }
-      if(this.current1==1&&this.current2==1){
-        this.xData = this.xData4
-        this.yData = this.yData4
-      }
-      this.$refs.right3Ref.drawLine(this.xData,this.yData);
-    },
-    changeDate(index){
-      this.current2 = index
-      if(this.current1==0&&this.current2==0){
-        this.xData = this.xData1
-        this.yData = this.yData1
-      }
-      if(this.current1==0&&this.current2==1){
-        this.xData = this.xData2
-        this.yData = this.yData2
-      }
-      if(this.current1==1&&this.current2==0){
-        this.xData = this.xData3
-        this.yData = this.yData3
-      }
-      if(this.current1==1&&this.current2==1){
-        this.xData = this.xData4
-        this.yData = this.yData4
-      }
-      this.$refs.right3Ref.drawLine(this.xData,this.yData);
-    },
-  },
+  }
 }
 </script>
 
@@ -257,6 +253,17 @@ export default {
     padding-top: 20px;
     margin-bottom: 19px;
   }
+  .left1-class{
+    width: 79px;
+    height: 64px;
+    margin-top:17px;
+    background: url("../../assets/left1-0.png") 0 0 no-repeat;
+  }
+  .lightSmark{
+    margin-bottom: 25px;
+    width: 220px;
+    height: 81px;
+  }
   .centerTop{
     width: 815px;
     height: 588px;
@@ -273,11 +280,39 @@ export default {
     background: url("../../assets/center2.png") 0 0 no-repeat;
     background-size: cover;
   }
-.highlight1{
-  color:#2CD6FF
-}
-.normal1{
-  color:#207DB9
-}
+  .centerBottom-circle{
+    width: 159px;
+    height: 159px;
+    line-height: 159px;
+    background: url("../../assets/center2-0.png") 0 0 no-repeat,
+    url("../../assets/center2-1.png") 0px 0 no-repeat;
+    background-position: center;
+  }
+  .centerBottom-circle-1{
+    width: 159px;
+    height: 159px;
+    line-height: 159px;
+    background: url("../../assets/center2-2.png") 0 0 no-repeat,
+    url("../../assets/center2-1.png") 0px 0 no-repeat;
+    background-position: center;
+  }
+  .centerBottom-circle-text{
+    color: #fff;
+    font-size: 28.5px;
+    text-align: center;
+  }
+  .centerBottom-circle-text1{
+    color: #fff;
+    font-size: 16px;
+    padding-left: 31px;
+  }
+  .right1-class{
+    border-right: 1px solid #138DD8;
+    padding-right: 22px;
+    margin-right: 22px;
+  }
+  .right1-class:last-of-type{
+    border:none
+  }
 </style>
 

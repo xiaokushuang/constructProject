@@ -1,6 +1,6 @@
 <template>
     <div class="left2Class">
-      <div id="myChart" :style="{width: '400px', height: '200px'}"></div>
+      <div id="myChart" :style="{width: '410px', height: '200px'}"></div>
     </div>
 </template>
 
@@ -67,7 +67,7 @@
             },
             grid:{
               top:'25%',//距上边距
-              left:'25%',//距离左边距
+              left:'30%',//距离左边距
               right:'25%',//距离右边距
               bottom:'25%',//距离下边距
             },
@@ -90,7 +90,7 @@
               {
                 name: '',
                 type: 'pie',
-                center: ['35%', '50%'], //图的位置，距离左跟上的位置
+                center: ['35%', '45%'], //图的位置，距离左跟上的位置
                 radius: ['50%', '63%'],
                 avoidLabelOverlap: false,
                 /*label: {

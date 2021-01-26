@@ -5,20 +5,28 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: "right3",
     data(){
       return {
-
+        xData:[],
+        yData:[],
       }
     },
     mounted(){
     },
     created(){
-
+      axios.get("../../../static/json/home-right-3.json").then((res)=>{
+        if(res.data.success){
+          this.xData = res.data.xData
+          this.yData = res.data.yData
+          this.drawLine();
+        }
+      })
     },
     methods: {
-      drawLine(xData,yData) {
+      drawLine() {
         // 基于准备好的dom，初始化echarts实例
         let myLineChart = this.$echarts.init(document.getElementById('myLineChart'))
         // 绘制图表
@@ -33,11 +41,11 @@
                 fontSize: 12
               }
             },
-            data: xData
+            data: this.xData
           },
           yAxis: {
             type: 'value',
-            max : 8,
+            max : 100,
             min : 0,
             splitNumber : 4,
             boundaryGap : [0.7, 0.7 ],
@@ -58,7 +66,7 @@
           },
 
           series: [{
-            data: yData,
+            data: this.yData,
             type: 'line',
             color:'#1ED5B6',
             itemStyle:{
@@ -87,21 +95,22 @@
                 }
               }
             },
-            markPoint: {
-              label: {
-                normal: {
-                  textStyle: {
-                    color: '#fff'
-                  }
-                }
-              },
-              data: [{
-                type: 'max',
-                name: '最大值',
+            // markPoint: {
+            //   label: {
+            //     normal: {
+            //       textStyle: {
+            //         color: '#fff'
+            //       }
+            //     }
+            //   },
+            //   data: [{
+            //     type: 'max',
+            //     name: '最大值',
 
-              },]
-            },
-          }]
+            //   },]
+            // },
+          }
+          ]
         }
         );
       }

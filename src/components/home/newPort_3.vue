@@ -386,7 +386,7 @@ export default {
 
 @font-face {
     font-family: 'lcd-font';
-    src: url('./lcdFontStyleN.ttf'); /* IE9 Compat Modes */
+    src: url('./lcdFontStyle.ttf'); /* IE9 Compat Modes */
    }
 
 

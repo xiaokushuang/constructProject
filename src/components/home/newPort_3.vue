@@ -18,19 +18,19 @@
         <div class="block_2">
             <span style="display: inline-block;width: 100%;text-align: center;padding-top: 38px;font-size: 18px;">累计签约金额</span>
             <span style="color: #FFCC66;font-size: 30px;font-family:lcd-font;display: inline-block;width: 100%;text-align: center;padding-top: 10px;">
-                <ICountUp :start="0" :endVal="parseInt(1752249624)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
+                <ICountUp :start="0" :endVal="parseInt(175224.96)" :decimals="0" :duration="2.5" :options="options"></ICountUp><span style="left: 2px;font-size: 26px;font-family: none;position: relative;bottom: 3px;">万元</span>
                 </span>
             <!-- <div class="light" style="padding:10px 0px 0px 10px">
                 <div class="digits"></div>
             </div> -->
             <div style="text-align: center;padding: 15px 0px 10px 0px;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">月总签约金额</span>
                 <span style="font-size: 20px;font-family:lcd-font;color: #33CCFF;opacity: 0.9;">
-                <ICountUp :start="0" :endVal="parseInt(73010401)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
+                <ICountUp :start="0" :endVal="parseInt(7301.04)" :decimals="0" :duration="2.5" :options="options"></ICountUp><span style="left: 2px;font-size: 18px;font-family: none;position: relative;bottom: 2px;">万元</span>
                     </span>
             </div>
             <div style="text-align: center;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">日总签约金额</span>
                 <span style="font-size: 20px;font-family:lcd-font;color: #33CCFF;opacity: 0.9;">
-                    <ICountUp :start="0" :endVal="parseInt(2483680)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
+                    <ICountUp :start="0" :endVal="parseInt(248.36)" :decimals="0" :duration="2.5" :options="options"></ICountUp><span style="left: 2px;font-size: 18px;font-family: none;position: relative;bottom: 2px;">万元</span>
                     </span></div>
         </div>
     </div>

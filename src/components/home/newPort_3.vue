@@ -3,33 +3,33 @@
     <div id="main_3">
         <div class="block_1">
             <span style="display: inline-block;width: 100%;text-align: center;padding-top: 38px;font-size: 18px;">累计签单数</span>
-            <span style="color: #FFCC66;font-size: 20px;font-family: auto;display: inline-block;font-style: italic;width: 100%;text-align: center;padding-top: 10px;">
+            <span style="color: #FFCC66;font-size: 30px;font-family:lcd-font;display: inline-block;width: 100%;text-align: center;padding-top: 10px;">
                  <ICountUp :start="0" :endVal="parseInt(124)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
                 </span>
             <!-- <div class="light" style="padding:10px 0px 0px 10px">
                 <div class="digits"></div>
             </div> -->
-            <div style="text-align: center;padding: 20px 0px 10px 0px;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">月总签单数</span>
-                <span style="font-size: 16px;color: #33CCFF;opacity: 0.9;font-style: italic;"><ICountUp :start="0" :endVal="parseInt(27)" :decimals="0" :duration="2.5" :options="options"></ICountUp></span>
+            <div style="text-align: center;padding: 16px 0px 10px 0px;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">月总签单数</span>
+                <span style="color: #33CCFF;opacity: 0.9;font-size: 20px;font-family:lcd-font"><ICountUp :start="0" :endVal="parseInt(27)" :decimals="0" :duration="2.5" :options="options"></ICountUp></span>
             </div>
             <div style="text-align: center;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">日总签单数</span>
-                <span style="font-size: 16px;color: #33CCFF;opacity: 0.9;font-style: italic;"><ICountUp :start="0" :endVal="parseInt(8)" :decimals="0" :duration="2.5" :options="options"></ICountUp></span></div>
+                <span style="font-size: 20px;font-family:lcd-font;color: #33CCFF;opacity: 0.9;"><ICountUp :start="0" :endVal="parseInt(8)" :decimals="0" :duration="2.5" :options="options"></ICountUp></span></div>
         </div>
         <div class="block_2">
             <span style="display: inline-block;width: 100%;text-align: center;padding-top: 38px;font-size: 18px;">累计签约金额</span>
-            <span style="color: #FFCC66;font-size: 20px;font-family: auto;display: inline-block;font-style: italic;width: 100%;text-align: center;padding-top: 10px;">
+            <span style="color: #FFCC66;font-size: 30px;font-family:lcd-font;display: inline-block;width: 100%;text-align: center;padding-top: 10px;">
                 <ICountUp :start="0" :endVal="parseInt(1752249624)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
                 </span>
             <!-- <div class="light" style="padding:10px 0px 0px 10px">
                 <div class="digits"></div>
             </div> -->
-            <div style="text-align: center;padding: 20px 0px 10px 0px;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">月总签约金额</span>
-                <span style="font-size: 16px;color: #33CCFF;opacity: 0.9;font-style: italic;">
+            <div style="text-align: center;padding: 15px 0px 10px 0px;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">月总签约金额</span>
+                <span style="font-size: 20px;font-family:lcd-font;color: #33CCFF;opacity: 0.9;">
                 <ICountUp :start="0" :endVal="parseInt(73010401)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
                     </span>
             </div>
             <div style="text-align: center;"><span style="display: inline-block;color: #c1c1c1;font-size: 14px;padding-right: 16px;">日总签约金额</span>
-                <span style="font-size: 16px;color: #33CCFF;opacity: 0.9;font-style: italic;">
+                <span style="font-size: 20px;font-family:lcd-font;color: #33CCFF;opacity: 0.9;">
                     <ICountUp :start="0" :endVal="parseInt(2483680)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
                     </span></div>
         </div>
@@ -383,6 +383,11 @@ export default {
     bottom: 0px;
     background-color: #272e38;
 }
+
+@font-face {
+    font-family: 'lcd-font';
+    src: url('./lcdFontStyleN.ttf'); /* IE9 Compat Modes */
+   }
 
 
 </style><style scoped>

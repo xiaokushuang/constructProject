@@ -201,14 +201,14 @@
 .contentClass{
   background: url("../images/border/bg-2.png") no-repeat;
   width: 100%;
-  height: 1080px;
+  height: 937px;
   padding: 20px;
   background-size: 100% 100%;
 }
   .mapContentClass{
     background: url("../images/border/bg-2.png") no-repeat;
     width: 100%;
-    height: 1080px;
+    height: 937px;
     padding: 20px;
     background-size: 100% 100%;
   }

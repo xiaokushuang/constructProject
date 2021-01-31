@@ -10,43 +10,147 @@ export default {
     name: 'registerMap',
     data() {
         return {
-            dataList: [
-            {name:"南海诸岛",value:0},
-            {name: '北京', value: this.randomValue()},
-            {name: '天津', value: this.randomValue()},
-            {name: '上海', value: this.randomValue()},
-            {name: '重庆', value: this.randomValue()},
-            {name: '河北', value: this.randomValue()},
-            {name: '河南', value: this.randomValue()},
-            {name: '云南', value: this.randomValue()},
-            {name: '辽宁', value: this.randomValue()},
-            {name: '黑龙江', value: this.randomValue()},
-            {name: '湖南', value: this.randomValue()},
-            {name: '安徽', value: this.randomValue()},
-            {name: '山东', value: this.randomValue()},
-            {name: '新疆', value: this.randomValue()},
-            {name: '江苏', value: this.randomValue()},
-            {name: '浙江', value: this.randomValue()},
-            {name: '江西', value: this.randomValue()},
-            {name: '湖北', value: this.randomValue()},
-            {name: '广西', value: this.randomValue()},
-            {name: '甘肃', value: this.randomValue()},
-            {name: '山西', value: this.randomValue()},
-            {name: '内蒙古', value: this.randomValue()},
-            {name: '陕西', value: this.randomValue()},
-            {name: '吉林', value: this.randomValue()},
-            {name: '福建', value: this.randomValue()},
-            {name: '贵州', value: this.randomValue()},
-            {name: '广东', value: this.randomValue()},
-            {name: '青海', value: this.randomValue()},
-            {name: '西藏', value: this.randomValue()},
-            {name: '四川', value: this.randomValue()},
-            {name: '宁夏', value: this.randomValue()},
-            {name: '海南', value: this.randomValue()},
-            {name: '台湾', value: this.randomValue()},
-            {name: '香港', value: this.randomValue()},
-            {name: '澳门', value: this.randomValue()}
-        ]
+            dataList: [{
+                    name: "南海诸岛",
+                    value: 0
+                },
+                {
+                    name: '北京',
+                    value: this.randomValue()
+                },
+                {
+                    name: '天津',
+                    value: this.randomValue()
+                },
+                {
+                    name: '上海',
+                    value: this.randomValue()
+                },
+                {
+                    name: '重庆',
+                    value: this.randomValue()
+                },
+                {
+                    name: '河北',
+                    value: this.randomValue()
+                },
+                {
+                    name: '河南',
+                    value: this.randomValue()
+                },
+                {
+                    name: '云南',
+                    value: this.randomValue()
+                },
+                {
+                    name: '辽宁',
+                    value: this.randomValue()
+                },
+                {
+                    name: '黑龙江',
+                    value: this.randomValue()
+                },
+                {
+                    name: '湖南',
+                    value: this.randomValue()
+                },
+                {
+                    name: '安徽',
+                    value: this.randomValue()
+                },
+                {
+                    name: '山东',
+                    value: this.randomValue()
+                },
+                {
+                    name: '新疆',
+                    value: this.randomValue()
+                },
+                {
+                    name: '江苏',
+                    value: this.randomValue()
+                },
+                {
+                    name: '浙江',
+                    value: this.randomValue()
+                },
+                {
+                    name: '江西',
+                    value: this.randomValue()
+                },
+                {
+                    name: '湖北',
+                    value: this.randomValue()
+                },
+                {
+                    name: '广西',
+                    value: this.randomValue()
+                },
+                {
+                    name: '甘肃',
+                    value: this.randomValue()
+                },
+                {
+                    name: '山西',
+                    value: this.randomValue()
+                },
+                {
+                    name: '内蒙古',
+                    value: this.randomValue()
+                },
+                {
+                    name: '陕西',
+                    value: this.randomValue()
+                },
+                {
+                    name: '吉林',
+                    value: this.randomValue()
+                },
+                {
+                    name: '福建',
+                    value: this.randomValue()
+                },
+                {
+                    name: '贵州',
+                    value: this.randomValue()
+                },
+                {
+                    name: '广东',
+                    value: this.randomValue()
+                },
+                {
+                    name: '青海',
+                    value: this.randomValue()
+                },
+                {
+                    name: '西藏',
+                    value: this.randomValue()
+                },
+                {
+                    name: '四川',
+                    value: this.randomValue()
+                },
+                {
+                    name: '宁夏',
+                    value: this.randomValue()
+                },
+                {
+                    name: '海南',
+                    value: this.randomValue()
+                },
+                {
+                    name: '台湾',
+                    value: this.randomValue()
+                },
+                {
+                    name: '香港',
+                    value: this.randomValue()
+                },
+                {
+                    name: '澳门',
+                    value: this.randomValue()
+                }
+            ]
         }
     },
     mounted() {
@@ -61,6 +165,7 @@ export default {
                     }
                 },
                 visualMap: {
+
                     min: 0,
                     max: 1500,
                     left: 'left',
@@ -69,7 +174,7 @@ export default {
                     inRange: {
                         color: ['#e0ffff', '#006edd']
                     },
-                    show: true
+                    show: false
                 },
                 geo: {
                     map: 'china',
@@ -96,6 +201,7 @@ export default {
                         }
                     }
                 },
+                
                 series: [{
                     name: '信息量',
                     type: 'map',
@@ -115,7 +221,8 @@ export default {
 
 <style>
 #main {
-    width: 785px;
-    height: 558px;
+    margin-left:300px;
+    width: 485px;
+    height: 470px;
 }
 </style>

@@ -51,7 +51,7 @@ html {
 #app{
   /*height: 100%;*/
     width: 1920px;
-  height: 1080px;
+  height: 937px;
   margin: 0;
 }
 

@@ -39,7 +39,7 @@
 
 <style scoped>
   .lightSmark{
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     width: 220px;
     height: 81px;
   }

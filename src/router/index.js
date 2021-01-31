@@ -27,6 +27,11 @@ export default new Router({
       path: '/regulatoryPlatform',
       name: 'regulatoryPlatform',
       component: RegulatoryPlatform
-    }
+    },
+    {
+      path: '/construction',
+      name: 'construction',
+      component: Construction
+    },
   ]
 })

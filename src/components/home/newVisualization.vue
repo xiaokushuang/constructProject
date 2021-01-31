@@ -18,8 +18,7 @@
                     </div>
                                     <div class="l" style="margin-top: 20px;margin-left:7px;">
                                         <div style="color:#6EFF8B;font-size:34px;text-align: center">
-                                            <ICountUp :start="0" :endVal="parseInt(data.num)" :decimals="0" :duration="2.5" :options="options"></ICountUp>
-                                            <!-- {{data.num}} -->
+                                            <i-count-up :start="0" :end="parseInt(data.num)" :decimals="0" :duration="2.5" :options="options"></i-count-up>
                                         </div>
                                         <div style="font-size:14px;font-weight:bold;color:#fff;" v-html="data.name">{{}}</div>
                                     </div>
@@ -42,11 +41,6 @@
                 <div class="center l" style="padding: 0 10px;">
                     <!--中间地图-->
                     <div class="centerTop">
-                        <div class="hj-right3">
-                            <div style="position: relative">
-                                <newPortThree></newPortThree>
-                            </div>
-                        </div>
                         <registerMap></registerMap>
                     </div>
                     <!--安全检查情况-->
@@ -54,10 +48,7 @@
                         <div class="titleClass1" style="padding-left:20px">企业数量</div>
                         <newPortOne></newPortOne>
                     </div>
-                    <div class="centerBottomRight l">
-                        <div class="titleClass1" style="padding-left:20px;position:absolute">企业分布</div>
-                        <newPortTwo style="padding-top:20px"></newPortTwo>
-                    </div>
+                    <div class="centerBottomRight l"></div>
                 </div>
                 <!--右侧部分-->
                 <div class="right l">
@@ -121,10 +112,7 @@ import left3 from './left3'
 import right2 from './right2'
 import right3 from './right3'
 import newPortOne from './newPort_1';
-import newPortTwo from './newPort_2';
-import newPortThree from './newPort_3';
 import ICountUp from 'vue-countup-v2'
-import axios from 'axios';
 export default {
     name: 'HelloWorld',
     components: {
@@ -134,17 +122,7 @@ export default {
         left3,
         right2,
         right3,
-        newPortOne,
-        newPortTwo,
-        newPortThree,
-        ICountUp
-    },
-    created() {
-        axios.get("../../static/json/hj.json").then((res) => {
-            if (res.data.success) {
-                this.rightList3 = res.data.rightList3
-            }
-        })
+        newPortOne
     },
     data() {
         return {
@@ -156,7 +134,6 @@ export default {
                 prefix: '',
                 suffix: ''
             },
-            rightList3: [],
             leftList1: [{
                     src: require('../../assets/left1-1.png'),
                     num: '890',
@@ -284,7 +261,7 @@ export default {
 }
 
 .centerTop {
-    width: 846px;
+    width: 815px;
     height: 500px;
     background: url("../../assets/center1.png") 0 0 no-repeat;
     background-size: 100% 100%;
@@ -302,26 +279,23 @@ export default {
 }
 
 .centerBottomLeft {
-    width: 413px;
-    height: 270px;
+    width: 407.5px;
+    height: 253px;
     padding: 10px;
     padding-top: 0;
     background: url("../../assets/center2.png") 0 0 no-repeat;
     background-size: 100% 100%;
     display: inline-block;
-    /* padding-right:20px; */
 }
 
 .centerBottomRight {
-    width: 413px;
-    height: 270px;
+    width: 407.5px;
+    height: 253px;
     padding: 10px;
     padding-top: 0;
     background: url("../../assets/center2.png") 0 0 no-repeat;
     background-size: 100% 100%;
     display: inline-block;
-    /* padding-left:20px; */
-    margin-left: 20px;
 }
 
 .centerBottom-circle {
@@ -362,24 +336,5 @@ export default {
 
 .right1-class:last-of-type {
     border: none
-}
-
-.hj-right3 {
-    /* background: url("../construction/homeTab/images/left/left-border-1.png") 0 0 no-repeat; */
-    width: 250px;
-    height: 470px;
-    background-size: 100% 100%;
-    display: inline-block;
-    position: absolute;
-}
-
-.right3-block {
-    width: 110px;
-}
-
-.right3-block div {
-    padding: 7px 8px;
-    text-align: right;
-    height: 30px;
 }
 </style>

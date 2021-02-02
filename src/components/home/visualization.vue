@@ -1,7 +1,7 @@
 <template>
 <div class="visualizationClass">
     <!--导航栏头部-->
-    <div class="navClass">全国中小企业直接融资服务平台</div>
+    <div class="navClass">全国专精特新中小企业培育服务平台</div>
     <!--内容部分-->
     <div style="padding: 0 15px;">
         <div class="contentClass clear" style="padding-top:30px">

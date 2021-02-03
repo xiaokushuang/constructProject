@@ -44,7 +44,7 @@
                   type: 'image',
                   style: {
                     // image: "../assets/pie-center.png",
-                    image: "http://119.3.213.166/images/spot.png",
+                    // image: "http://119.3.213.166/images/spot.png",
                     width: 80,
                     height: 80
                   },
